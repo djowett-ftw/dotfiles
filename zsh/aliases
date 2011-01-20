@@ -16,12 +16,6 @@ alias mvimdiff='mvim -d'
 alias v='mvim --remote-tab-silent'
 alias d='mvimdiff'
 
-# Apache / mysql
-alias amstart='sudo /opt/local/apache2/bin/apachectl start; sudo /opt/local/bin/mysqld_safe5 &'
-alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
-alias mysqlstart='sudo mysqld_safe5 &'
-alias mysqlstop='mysqladmin5 -u root shutdown'
-alias mysql='mysql5'
 alias fakemail='sudo ~/bin/fakemail.py --host=localhost --port=25 --path=/Users/jone/temp/mails --background'
 
 # rails
