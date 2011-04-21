@@ -50,6 +50,8 @@ alias gsm='git submodule init'
 alias gso='git show'
 alias gsv='git svn'
 alias gt='git tag'
+alias gst='git config --add remote.origin.fetch "+refs/notes/*:refs/notes/*"'
+alias gt='git notes --ref=jenkins show'
 
 
 # subversion

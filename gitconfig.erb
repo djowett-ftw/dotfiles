@@ -14,7 +14,7 @@
 [apply]
     whitespace = nowarn
 [format]
-    pretty = %C(yellow)%h%Creset %s (%C(red)%cr%Creset, %C(yellow)%an%Creset)%Creset
+    pretty = %C(yellow)%h%Creset %s (%C(red)%cr%Creset, %C(yellow)%an%Creset) %C(bold reverse)%N%Creset
 [github]
     user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
     token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
