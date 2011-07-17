@@ -1,26 +1,56 @@
 [user]
     name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
     email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
-[alias]
-    co = checkout
+
 [color]
     diff = auto
     status = auto
     branch = auto
+
+[color "branch"]
+   current = yellow reverse
+   local = green
+   remote = red
+
+[color "diff"]
+   meta = blue
+   frag = magenta
+   old = red bold
+   new = green bold
+
+[color "status"]
+   added = green
+   changed = red bold
+   untracked = cyan bold
+
 [core]
     excludesfile = <%= ENV['HOME'] %>/.gitignore
     editor = /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient
     autocrlf = input
+    whitespace = tabwidth=4,tab-in-indent,cr-at-eol
+
 [apply]
     whitespace = nowarn
+
 [format]
-    pretty = %C(yellow)%h%Creset %s (%C(red)%cr%Creset, %C(yellow)%an%Creset) %C(bold reverse)%N%Creset
+    pretty = %C(blue)%h%Creset %s %C(green)%d%Creset [%C(red)%an%Creset, %C(cyan)%cr%Creset] %C(bold reverse)%N%Creset
+
 [github]
     user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
     token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+
 [mergetool.ediff]
     cmd = /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+
 [push]
     default = tracking
+
 [branch]
     autosetuprebase = always
+
+[rerere]
+  enabled = 1
+
+[advice]
+  statusHints = false
+  detachedHead = false
