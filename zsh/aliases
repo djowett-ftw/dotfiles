@@ -135,4 +135,4 @@ alias -s el=emacs
 alias -s tsk=taskcoach
 
 # phone remote control
-alias phone_accept='curl "http://192.168.1.66/adr.htm?number=33"'
+alias phone_accept='curl "http://192.168.1.76/adr.htm?number=33"'
