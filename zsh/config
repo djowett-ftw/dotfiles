@@ -55,20 +55,20 @@ namedir izug /Users/jone/projects/izug/
 namedir skriptorium /Users/jone/projects/skriptorium/
 
 # http://www.cs.elte.hu/zsh-manual/zsh_14.html
-bindkey "^[[3~" delete-char             # Del
-bindkey "^[[A"  up-line-or-history      # Up arrow
-bindkey "^[[B"  down-line-or-history    # Down arrow
-bindkey "^A"    beginning-of-line
-bindkey "^E"    end-of-line
-bindkey " "     magic-space             # Do history expansion on space.
-#bindkey '^?' backward-delete-char echo bindkey '^[[3~' delete-char
-bindkey "^[[1;2D"  backward-word        # Shift-LeftArrow
-bindkey "^[[1;2C"  forward-word         # Shift-RightArrow
-bindkey "^J"    self-insert             # Shift-Enter for \n
-bindkey "^W"    delete-word             # Ctrl+W
-bindkey "^D"    backward-delete-word    # Ctrl+D
-bindkey "^O"    overwrite-mode          # Ctrl+O
+# bindkey "^[[3~" delete-char             # Del
+# bindkey "^[[A"  up-line-or-history      # Up arrow
+# bindkey "^[[B"  down-line-or-history    # Down arrow
+# bindkey "^A"    beginning-of-line
+# bindkey "^E"    end-of-line
+# bindkey " "     magic-space             # Do history expansion on space.
+# #bindkey '^?' backward-delete-char echo bindkey '^[[3~' delete-char
+# bindkey "^[[1;2D"  backward-word        # Shift-LeftArrow
+# bindkey "^[[1;2C"  forward-word         # Shift-RightArrow
+# bindkey "^J"    self-insert             # Shift-Enter for \n
+# bindkey "^W"    delete-word             # Ctrl+W
+# bindkey "^D"    backward-delete-word    # Ctrl+D
+# bindkey "^O"    overwrite-mode          # Ctrl+O
 
-# configuration for emacs multi-term.el compatibility
-bindkey "\ef"    forward-word
-bindkey "\eb"    backward-word
+# # configuration for emacs multi-term.el compatibility
+# bindkey "\ef"    forward-word
+# bindkey "\eb"    backward-word
