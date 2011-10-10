@@ -6,7 +6,6 @@
                       completion
                       css
                       diff
-                      e-max-developer
                       ergonomic
                       git
                       html
@@ -22,5 +21,7 @@
                       python
                       ruby
                       terminal
+
+                      e-max-developer
                       ))
 
