@@ -39,7 +39,12 @@ if [[ -d ./.svn ]] {
         not_pushed='%{\033[1;35m%}^'
     fi
 
-    echo "[%{\033[0;32m%}$branch$changed$removed$new$not_pushed$not_pulled%{\033[00m%}]"
+    not_committed=''
+    if [[ `git diff-index HEAD | grep -v 00000000000000000000000000000000000 | wc -l` -gt 0 ]]; then
+        not_committed='%{\033[0;31m%}$'
+    fi
+
+    echo "[%{\033[0;32m%}$branch$changed$removed$new$not_pushed$not_pulled$not_committed%{\033[00m%}]"
   }
 }
 
