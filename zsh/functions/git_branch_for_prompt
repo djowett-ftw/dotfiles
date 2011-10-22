@@ -46,7 +46,7 @@ if [[ -d ./.svn ]] {
         fi
 
     else
-        tracking=`echo "$branchinfo"|sed -e 's/^.*\[\(.*\)\].*$/___\1/'`
+        tracking=`echo "$branchinfo"|sed -e 's/^.*\[\(.*\)\].*$/\1/'`
 
         if [[ `echo "$tracking" | grep behind | wc -l` -gt 0 ]]; then
             not_pulled='%{\033[1;36m%}v'
