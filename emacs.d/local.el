@@ -21,6 +21,7 @@
                       python
                       ruby
                       terminal
+                      irc
 
                       e-max-developer
                       ))

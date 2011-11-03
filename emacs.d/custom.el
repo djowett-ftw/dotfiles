@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(e-max-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(e-max-project-location "/Users/jone/projects/")
+ '(erc-autojoin-channels-alist (quote (("freenode.net" "#PloneConf" "#Plone"))))
  '(explicit-shell-file-name nil)
  '(term-scroll-show-maximum-output t))
 (custom-set-faces
