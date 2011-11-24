@@ -24,5 +24,6 @@
                       irc
 
                       e-max-developer
+                      snippets
                       ))
 
