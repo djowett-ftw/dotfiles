@@ -50,6 +50,9 @@ setopt HIST_REDUCE_BLANKS
 zmodload -i zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+# ignore some entries when completing
+export FIGNORE=".egg-info:.pyc:.pyo:.mo"
+
 # named directories
 namedir izug /Users/jone/projects/izug/
 namedir skriptorium /Users/jone/projects/skriptorium/
