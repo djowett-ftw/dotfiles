@@ -7,7 +7,11 @@
  '(e-max-project-location "/Users/jone/projects/")
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#plone" "#PloneConf" "#Plone"))))
  '(explicit-shell-file-name nil)
+ '(indent-tabs-mode nil)
  '(ispell-extra-args (quote ("--lang=de")))
+ '(js-indent-level 4)
+ '(nxml-child-indent 4)
+ '(nxml-outline-child-indent 4)
  '(term-scroll-show-maximum-output t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
