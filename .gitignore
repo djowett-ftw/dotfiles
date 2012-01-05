@@ -3,3 +3,4 @@ gitconfig
 .DS_Store
 \#*
 emacs.d/backup*
+.rake_tasks-
