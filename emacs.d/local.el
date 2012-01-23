@@ -1,4 +1,3 @@
-(setq e-max-javascript-jslint-enabled t)
 (setq e-max-mac-use-shell-path t)
 
 (setq e-max-bundles '(
