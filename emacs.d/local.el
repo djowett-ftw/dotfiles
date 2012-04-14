@@ -29,4 +29,4 @@
 
 (global-set-key (kbd "<f6>") 'theme-roller-cycle)
 (setq theme-roller-active-themes '(color-theme-railscasts color-theme-lazy color-theme-monokai))
-(setq e-max-theme 'color-theme-railscasts)
+(setq e-max-theme 'color-theme-lazy)
