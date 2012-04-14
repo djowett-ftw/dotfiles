@@ -10,7 +10,6 @@
  '(e-max-project-location "/Users/jone/projects/")
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#plone" "#PloneConf" "#Plone" "#rubyusergroupbern"))))
  '(explicit-shell-file-name nil)
- '(flymake-gui-warnings-enabled nil)
  '(indent-tabs-mode nil)
  '(ispell-extra-args (quote ("--lang=de")))
  '(js-curly-indent-offset 2)
