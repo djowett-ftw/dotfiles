@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(dabbrev-case-distinction nil)
  '(dabbrev-case-fold-search nil)
- '(e-max-org-files "/Users/jone/idisk/notes/org")
+ '(e-max-org-files "/Users/jone/disk/notes/org/")
  '(e-max-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(e-max-project-location "/Users/jone/projects/")
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#plone" "#PloneConf" "#Plone" "#rubyusergroupbern"))))
