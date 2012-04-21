@@ -209,12 +209,6 @@ map ö :tabnew<CR>:BufExplorer<CR>
 
 
 " ---------------------------
-" PLUGIN: PYTHON_EDITING.VIM 
-source ~/.vim/ftplugin/python_editing.vim
-map f :source ~/.vim/ftplugin/python_editing.vim<CR>
-
-
-" ---------------------------
 " PLUGIN: PYDOC.VIM
 " <F1> calls Pydoc
 noremap <F1> :call ShowPyDoc('<C-R><C-A>', 1)<CR> 
