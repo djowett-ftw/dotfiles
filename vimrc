@@ -1,8 +1,8 @@
-colorscheme desert
 syntax on
+set background=light
+colorscheme solarized
 
 set cursorline                      " highlight current line
-highlight CursorLine guibg=#171717
 set number                          " show line numbers
 set encoding=utf-8                  " default encoding
 set fileformat=unix                 " default file format
