@@ -17,6 +17,7 @@
  '(js-indent-level 4)
  '(js-paren-indent-offset 2)
  '(js-square-indent-offset 2)
+ '(magit-git-standard-options (quote ("--no-pager")))
  '(nxml-child-indent 4)
  '(nxml-outline-child-indent 4)
  '(term-scroll-show-maximum-output t))
