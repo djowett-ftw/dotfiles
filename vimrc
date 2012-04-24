@@ -16,8 +16,8 @@ set showmatch                       " show closing brackets
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.swp
 autocmd BufEnter * lcd %:p:h        " always switch working directory to directory of current file
     "" highlight long lines (>81)
-hi LineTooLong cterm=bold   ctermbg=red     guibg=black
-match LineTooLong /\%>80v.\+/
+"hi LineTooLong cterm=bold   ctermbg=red     guibg=black
+"match LineTooLong /\%>80v.\+/
 
 " spelling
 hi SpellBad ctermfg=white   ctermbg=red     guibg=red
