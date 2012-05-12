@@ -1,6 +1,12 @@
 syntax on
-set background=light
-colorscheme solarized
+
+if has("gui_running")
+  set background=light
+  colorscheme solarized
+else
+  set background=dark
+  colorscheme desert
+endif
 
 set cursorline                      " highlight current line
 set number                          " show line numbers
