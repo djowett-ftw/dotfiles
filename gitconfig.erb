@@ -62,7 +62,7 @@
   detachedHead = false
 
 [alias]
-  weburl = !git config --get remote.origin.url | sed -e 's/git@github.com:/https:\\/\\/github.com\\//' -e 's/\\.git$//' -e 's/gitolite@git.4teamwork.ch:\\(.*\\)/https:\\/\\/git.4teamwork.ch\\/?p=\\1.git/'
+  weburl = !git config --get remote.origin.url | sed -e 's/git:\\/\\/github.com/https:\\/\\/github.com/' -e 's/git@github.com:/https:\\/\\/github.com\\//' -e 's/\\.git$//' -e 's/gitolite@git.4teamwork.ch:\\(.*\\)/https:\\/\\/git.4teamwork.ch\\/?p=\\1.git/'
   browse = !open `git weburl`
 
 [url "git@github.com:"]
