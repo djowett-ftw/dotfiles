@@ -64,6 +64,7 @@
 [alias]
   weburl = !git config --get remote.origin.url | sed -e 's/git:\\/\\/github.com/https:\\/\\/github.com/' -e 's/git@github.com:/https:\\/\\/github.com\\//' -e 's/\\.git$//' -e 's/gitolite@git.4teamwork.ch:\\(.*\\)/https:\\/\\/git.4teamwork.ch\\/?p=\\1.git/'
   browse = !open `git weburl`
+  jenkins = !basename `pwd` | sed -e 's/^/https:\\/\\/jenkins.4teamwork.ch\\/search\\/?q=/' | xargs open
 
 [url "git@github.com:"]
     insteadOf = "gh:"

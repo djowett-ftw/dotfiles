@@ -52,6 +52,7 @@ alias gsv='git svn'
 alias gst='git config --add remote.origin.fetch "+refs/notes/*:refs/notes/*"'
 alias gt='git notes --ref=jenkins show'
 alias go='git browse'
+alias gj='git jenkins'
 
 
 # subversion
