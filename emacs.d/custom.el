@@ -9,6 +9,7 @@
  '(e-max-org-files "/Users/jone/disk/notes/org/")
  '(e-max-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(e-max-project-location "/Users/jone/projects/")
+ '(e-max-plone-buildout--use-local-pep8 t)
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#4tw" "#plone" "#rubyusergroupbern"))))
  '(erc-insert-away-timestamp-function (quote erc-insert-timestamp-left-and-right))
  '(erc-insert-timestamp-function (quote erc-insert-timestamp-left-and-right))
