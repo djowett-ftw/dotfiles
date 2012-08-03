@@ -65,6 +65,7 @@
   weburl = !git config --get remote.origin.url | sed -e 's/git:\\/\\/github.com/https:\\/\\/github.com/' -e 's/git@github.com:/https:\\/\\/github.com\\//' -e 's/\\.git$//' -e 's/gitolite@git.4teamwork.ch:\\(.*\\)/https:\\/\\/git.4teamwork.ch\\/?p=\\1.git/'
   browse = !open `git weburl`
   jenkins = !basename `pwd` | sed -e 's/^/https:\\/\\/jenkins.4teamwork.ch\\/search\\/?q=/' | xargs open
+  merge-diff = !sh -c 'git diff "$1^1"..."$1^2" "$@"' -
 
 [url "git@github.com:"]
     insteadOf = "gh:"
