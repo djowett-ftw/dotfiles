@@ -5,9 +5,12 @@
                       completion
                       css
                       diff
+                      e-max-developer
                       ergonomic
                       git
                       html
+                      irc
+                      jabber
                       javascript
                       latex
                       lisp
@@ -19,12 +22,8 @@
                       project
                       python
                       ruby
-                      terminal
-                      irc
-                      jabber
-
-                      e-max-developer
                       snippets
+                      terminal
                       ))
 
 
