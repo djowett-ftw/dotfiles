@@ -21,6 +21,7 @@
                       power-edit
                       project
                       python
+                      rect-mark
                       ruby
                       snippets
                       terminal
