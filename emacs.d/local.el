@@ -5,12 +5,9 @@
                       completion
                       css
                       diff
-                      e-max-developer
                       ergonomic
                       git
                       html
-                      irc
-                      jabber
                       javascript
                       latex
                       lisp
@@ -21,10 +18,14 @@
                       power-edit
                       project
                       python
-                      rect-mark
                       ruby
-                      snippets
                       terminal
+                      irc
+                      jabber
+                      rect-mark
+
+                      e-max-developer
+                      snippets
                       ))
 
 
