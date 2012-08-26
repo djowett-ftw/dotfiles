@@ -1,6 +1,6 @@
-(setq e-max-mac-use-shell-path t)
+(setq cabbage-mac-use-shell-path t)
 
-(setq e-max-bundles '(
+(setq cabbage-bundles '(
                       accessibility
                       completion
                       css
@@ -24,14 +24,14 @@
                       jabber
                       rect-mark
 
-                      e-max-developer
+                      cabbage-developer
                       snippets
                       ))
 
 
 (global-set-key (kbd "<f6>") 'theme-roller-cycle)
 (setq theme-roller-active-themes '(color-theme-railscasts color-theme-lazy color-theme-monokai))
-(setq e-max-theme 'color-theme-lazy)
+(setq cabbage-theme 'color-theme-lazy)
 
 (setq jabber-account-list
       '(("tschouns@gmail.com"
