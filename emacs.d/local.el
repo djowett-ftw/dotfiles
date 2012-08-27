@@ -19,7 +19,6 @@
                       project
                       python
                       ruby
-                      terminal
                       irc
                       jabber
                       rect-mark
