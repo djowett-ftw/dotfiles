@@ -1,6 +1,6 @@
 #
 
-PS1='%3~$(git_branch_for_prompt)%# '
+PS1=$'\e[0;36m%3~\e[0m$(git_branch_for_prompt)\e[0;31m%%\e[0m '
 #PS1='%3~$(git_branch_for_prompt)$%# '
 export EDITOR='/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient'
 export ALTERNATE_EDITOR=vim
