@@ -7,7 +7,7 @@
  '(dabbrev-case-distinction nil)
  '(dabbrev-case-fold-search nil)
  '(cabbage-javascript-jslint-enabled t)
- '(cabbage-org-files "/Users/jone/disk/notes/org/")
+ '(cabbage-org-files "/Users/jone/drive/documents/notes/org/")
  '(cabbage-plone-buildout--use-local-pep8 t)
  '(cabbage-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(cabbage-project-location "/Users/jone/projects/")
