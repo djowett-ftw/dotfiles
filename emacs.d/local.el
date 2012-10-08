@@ -4,7 +4,7 @@
                       accessibility
                       completion
                       css
-                      diff
+                          diff
                       ergonomic
                       git
                       html
@@ -20,7 +20,6 @@
                       python
                       ruby
                       irc
-                      jabber
                       rect-mark
 
                       cabbage-developer
