@@ -3,15 +3,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(css-indent-offset 2)
- '(dabbrev-case-distinction nil)
- '(dabbrev-case-fold-search nil)
  '(cabbage-javascript-jslint-enabled t)
  '(cabbage-org-files "/Users/jone/drive/documents/notes/org/")
  '(cabbage-plone-buildout--use-local-pep8 t)
  '(cabbage-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(cabbage-project-location "/Users/jone/projects/")
- '(erc-autojoin-channels-alist (quote (("freenode.net" "#4tw" "#plone" "#TheBatch"))))
+ '(css-indent-offset 2)
+ '(dabbrev-case-distinction nil)
+ '(dabbrev-case-fold-search nil)
+ '(erc-autojoin-channels-alist (quote (("freenode.net" "#4tw" "#plone" "#PloneConf"))))
  '(erc-insert-away-timestamp-function (quote erc-insert-timestamp-left-and-right))
  '(erc-insert-timestamp-function (quote erc-insert-timestamp-left-and-right))
  '(erc-interpret-mirc-color t)
@@ -32,6 +32,8 @@
  '(js-paren-indent-offset 2)
  '(js-square-indent-offset 2)
  '(magit-git-standard-options (quote ("--no-pager")))
+ '(magit-remote-ref-format (quote remote-slash-branch))
+ '(magit-save-some-buffers nil)
  '(nxml-child-indent 4)
  '(nxml-outline-child-indent 4)
  '(term-scroll-show-maximum-output t))
