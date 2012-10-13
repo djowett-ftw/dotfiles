@@ -39,3 +39,22 @@
       jabber-roster-show-bindings nil)
 
 (add-to-list 'completion-ignored-extensions ".egg-info")
+
+
+;; Robot framework
+
+(defun jone-setup-robot-mode ()
+  (load-file (expand-file-name "~/.emacs.d/vendor/robot-mode/robot-mode.el"))
+  (add-to-list 'auto-mode-alist '("/tests/.*\\.txt\\'" . robot-mode))
+
+  (define-key robot-mode-map (kbd "M-e") 'jone-execute-robot-tests))
+
+(add-hook 'cabbage-initialized-hook 'jone-setup-robot-mode)
+
+
+(defun jone-setup-robot-mode-testing ()
+  (when (and buffer-file-name (string-match "/tests" buffer-file-name))
+    (setq cabbage-testing-execute-function
+          'cabbage-plone--run-single-file-tests)))
+
+(add-hook 'robot-mode-hook 'cabbage-plone--python-setup-testing)
