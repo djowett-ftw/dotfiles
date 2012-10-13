@@ -1,30 +1,30 @@
 (setq cabbage-mac-use-shell-path t)
 
 (setq cabbage-bundles '(
-                      accessibility
-                      completion
-                      css
-                          diff
-                      ergonomic
-                      git
-                      html
-                      javascript
-                      latex
-                      lisp
-                      markdown
-                      maximize
-                      org
-                      plone
-                      power-edit
-                      project
-                      python
-                      ruby
-                      irc
-                      rect-mark
+                        accessibility
+                        completion
+                        css
+                        diff
+                        ergonomic
+                        git
+                        html
+                        javascript
+                        latex
+                        lisp
+                        markdown
+                        maximize
+                        org
+                        plone
+                        power-edit
+                        project
+                        python
+                        ruby
+                        irc
+                        rect-mark
 
-                      cabbage-developer
-                      snippets
-                      ))
+                        cabbage-developer
+                        snippets
+                        ))
 
 
 (global-set-key (kbd "<f6>") 'theme-roller-cycle)
