@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(cabbage-javascript-jslint-enabled t)
  '(cabbage-org-files "/Users/jone/drive/documents/notes/org/")
+ '(cabbage-plone-buildout--default-zope-user "zopemaster")
  '(cabbage-plone-buildout--use-local-pep8 t)
  '(cabbage-plone-known-buildout-instances (quote (("bin/instance" "fg") ("bin/instance1" "fg") ("bin/instanceadm" "fg") ("bin/serve" "") ("bin/feedcenter" "fg"))))
  '(cabbage-project-location "/Users/jone/projects/")
