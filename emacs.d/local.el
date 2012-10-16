@@ -1,7 +1,5 @@
 (setq cabbage-mac-use-shell-path t)
 
-(add-to-list 'cabbage-bundle-dirs (expand-file-name "~/.emacs.d/bundles/"))
-(add-to-list 'cabbage-vendor-dirs (expand-file-name "~/.emacs.d/vendor/"))
 (add-to-list 'cabbage-bundle-dirs (expand-file-name "~/projects/cabbage-contrib/bundles/"))
 (add-to-list 'cabbage-vendor-dirs (expand-file-name "~/projects/cabbage-contrib/vendor/"))
 
@@ -27,13 +25,13 @@
                         ruby
                         irc
                         rect-mark
-                        robot-mode
 
                         cabbage-developer
                         snippets
 
                         ;; contrib
                         contrib-developer
+                        robot-mode
                         ))
 
 
