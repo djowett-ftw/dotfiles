@@ -43,3 +43,9 @@
       jabber-roster-show-bindings nil)
 
 (add-to-list 'completion-ignored-extensions ".egg-info")
+
+(defun jone-after-loading-cabbage ()
+  (setq *textmate-gf-exclude*
+        (replace-regexp-in-string "\|\\\\\.app\|" "|" *textmate-gf-exclude*)))
+
+(add-hook 'cabbage-initialized-hook 'jone-after-loading-cabbage)
