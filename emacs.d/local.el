@@ -46,6 +46,23 @@
 
 (defun jone-after-loading-cabbage ()
   (setq *textmate-gf-exclude*
-        (replace-regexp-in-string "\|\\\\\.app\|" "|" *textmate-gf-exclude*)))
+        (replace-regexp-in-string "\|\\\\\.app\|" "|" *textmate-gf-exclude*))
+
+  (cabbage-global-set-key (kbd "C-c f S") 'jone--plone-add-security-statement))
 
 (add-hook 'cabbage-initialized-hook 'jone-after-loading-cabbage)
+
+
+(defun jone--plone-add-security-statement ()
+  (interactive)
+
+  (search-forward " def ")
+  (when (yes-or-no-p "Add security declaration?")
+    (let ((methodname (current-word)))
+      (backward-paragraph)
+      (newline)
+      (insert (concat "    security.declarePrivate('" methodname "')"))
+      (search-forward " def ")))
+
+  ;; continue
+  (jone--plone-add-security-statement))
