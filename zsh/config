@@ -67,14 +67,17 @@ namedir skriptorium /Users/jone/projects/skriptorium/
 
 # http://www.cs.elte.hu/zsh-manual/zsh_14.html
 # bindkey "^[[3~" delete-char             # Del
-# bindkey "^[[A"  up-line-or-history      # Up arrow
-# bindkey "^[[B"  down-line-or-history    # Down arrow
-# bindkey "^A"    beginning-of-line
-# bindkey "^E"    end-of-line
+bindkey "^[[A"  up-line-or-history      # Up arrow
+bindkey "^[[B"  down-line-or-history    # Down arrow
+bindkey "^[[E"  beginning-of-line
+bindkey "^[[F"  end-of-line
+bindkey "^[[G"  delete-word
+bindkey "^[[H"  backward-delete-word
 # bindkey " "     magic-space             # Do history expansion on space.
-# #bindkey '^?' backward-delete-char echo bindkey '^[[3~' delete-char
-# bindkey "^[[1;2D"  backward-word        # Shift-LeftArrow
-# bindkey "^[[1;2C"  forward-word         # Shift-RightArrow
+# bindkey '^?' backward-delete-char
+bindkey '^[[3~' delete-char
+bindkey "^[[1;2D"  backward-word        # Shift-LeftArrow
+bindkey "^[[1;2C"  forward-word         # Shift-RightArrow
 # bindkey "^J"    self-insert             # Shift-Enter for \n
 # bindkey "^W"    delete-word             # Ctrl+W
 # bindkey "^D"    backward-delete-word    # Ctrl+D
