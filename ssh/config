@@ -1,0 +1,3 @@
+PermitLocalCommand yes
+ForwardAgent yes
+LocalCommand rsync -e "ssh -o permitlocalcommand=no" -rL %d/.remote/ %r@%n:.jone/
