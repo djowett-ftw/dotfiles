@@ -4,7 +4,7 @@
 if [[ "$1" == "zsh" ]]; then
     formatted_print=true
     light_red="%{\033[1;31m%}"
-    cyan="[\033[0;36m%}"
+    cyan="%{\033[0;36m%}"
     light_blue="%{\033[1;34m%}"
     light_purple="%{\033[1;35m%}"
     light_cyan="%{\033[1;36m%}"
@@ -15,7 +15,7 @@ if [[ "$1" == "zsh" ]]; then
 else
     formatted_print=false
     light_red="\[\033[1;31m\]"
-    cyan="[\033[0;36m\]"
+    cyan="\[\033[0;36m\]"
     light_blue="\[\033[1;34m\]"
     light_purple="\[\033[1;35m\]"
     light_cyan="\[\033[1;36m\]"
@@ -31,13 +31,13 @@ fi
 if [[ -d ./.svn ]]; then
     notclean=''
     if [[ `svn st | grep '^[ACDIMR?!~]' | wc -l` -gt 0 ]]; then
-        notclean='${light_red}*'
+        notclean="${light_red}*"
     fi
 
     if [ $formatted_print ]; then
-        echo "[\${cyan}SVN$notclean${default_color}]"
+        echo -e "[${cyan}SVN${notclean}${default_color}]"
     else
-        echo -e "[\${cyan}SVN$notclean${default_color}]"
+        echo "[${cyan}SVN${notclean}${default_color}]"
     fi
 
 else
@@ -51,7 +51,7 @@ else
         gitsvn=false
         if [[ `git config --get svn-remote.svn.url | wc -l` -gt 0 ]]; then
             gitsvn=true
-            prefix="$prefix\${cyan}gitsvn-"
+            prefix="$prefix${cyan}gitsvn-"
         fi
 
 
