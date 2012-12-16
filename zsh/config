@@ -8,12 +8,10 @@ RPROMPT='%{$fg_bold[cyan]%}$(hostname)%{$reset_color%}'
 #PS1='%3~$(git_branch_for_prompt)$%# '
 export EDITOR='/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient'
 export ALTERNATE_EDITOR=vim
-PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
-PATH="$HOME/bin:$HOME/.bin:$HOME/.willgit/bin:$PATH"
-PATH="/Library/Frameworks/Python.framework/Versions/2.4.6/bin/:$PATH"
-PATH="/System/Library/Frameworks/Python.framework/Versions/2.4/bin/:$PATH"
-export PATH=/opt/subversion/bin:$PATH
-MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"  # Add homebrew bin directories
+PATH="$HOME/bin:$HOME/.bin:$PATH"            # Add personal bin directories
+
 TERM="xterm"; export TERM               # for the linux servers: use normal xterm
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

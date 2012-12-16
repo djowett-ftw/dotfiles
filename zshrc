@@ -5,11 +5,5 @@ source ~/.zsh/completion
 # include ~/.zshlocal if existing:
 if [[ -s ~/.zshlocal ]] ; then source ~/.zshlocal ; fi
 
-# rvm-install added line:
-if [[ -s /Users/jone/.rvm/scripts/rvm ]] ; then source /Users/jone/.rvm/scripts/rvm ; fi
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
