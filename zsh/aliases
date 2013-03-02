@@ -16,7 +16,7 @@ alias mvimdiff='mvim -d'
 alias v='mvim --remote-tab-silent'
 alias d='mvimdiff'
 
-alias fakemail='sudo ~/bin/fakemail.py --host=localhost --port=25 --path=/Users/jone/temp/mails --background --open'
+alias fakemail='sudo /usr/bin/python2.6 ~/bin/fakemail.py --host=localhost --port=25 --path=/Users/jone/temp/mails --background --open'
 
 # rails
 alias rss='script/server'
