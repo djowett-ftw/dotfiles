@@ -15,7 +15,6 @@
                         latex
                         lisp
                         markdown
-                        maximize
                         org
                         plone
                         power-edit
