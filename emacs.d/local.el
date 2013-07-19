@@ -3,6 +3,9 @@
 (add-to-list 'cabbage-bundle-dirs (expand-file-name "~/.emacs.d/bundles/"))
 (add-to-list 'cabbage-vendor-dirs (expand-file-name "~/.emacs.d/vendor/"))
 
+(add-to-list 'cabbage-bundle-dirs (expand-file-name "~/projects/cabbage-contrib/bundles/"))
+(add-to-list 'cabbage-vendor-dirs (expand-file-name "~/projects/cabbage-contrib/vendor/"))
+
 (setq cabbage-bundles '(
                         accessibility
                         completion
