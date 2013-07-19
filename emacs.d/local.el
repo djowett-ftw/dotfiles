@@ -50,7 +50,9 @@
   (setq *textmate-gf-exclude*
         (replace-regexp-in-string "\|\\\\\.app\|" "|" *textmate-gf-exclude*))
 
-  (cabbage-global-set-key (kbd "C-c f S") 'jone--plone-add-security-statement))
+  (cabbage-global-set-key (kbd "C-c f S") 'jone--plone-add-security-statement)
+  (cabbage-global-set-key (kbd "C-M-o") 'forward-sexp)
+  (cabbage-global-set-key (kbd "C-M-u") 'backward-sexp))
 
 (add-hook 'cabbage-initialized-hook 'jone-after-loading-cabbage)
 
