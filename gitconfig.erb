@@ -67,6 +67,7 @@
   jenkins = !basename `pwd` | sed -e 's/^/https:\\/\\/jenkins.4teamwork.ch\\/search\\/?q=/' | xargs open
   merge-diff = !sh -c 'git diff "$1^1"..."$1^2" "$@"' -
   rcp = !git config --get remote.origin.url | tr -d '\n' | pbcopy
+  bcp = !git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
 
 [url "git@github.com:"]
     insteadOf = "gh:"
