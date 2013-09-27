@@ -9,3 +9,5 @@ if [[ -s ~/.zshlocal ]] ; then source ~/.zshlocal ; fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 eval "$(rbenv init -)"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
