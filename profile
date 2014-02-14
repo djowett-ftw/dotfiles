@@ -94,5 +94,3 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # MacPorts Installer addition on 2009-09-09_at_07:30:33: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
-
-if [[ -s /Users/jone/.rvm/scripts/rvm ]] ; then source /Users/jone/.rvm/scripts/rvm ; fi
