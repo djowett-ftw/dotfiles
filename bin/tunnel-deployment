@@ -4,7 +4,7 @@ deployment=$1
 shift
 args=$*
 
-if [[ $deployment_length -eq 0 ]]; then
+if [[ $deployment_length -eq 1 ]]; then
     deployment="0$deployment"
 fi
 
