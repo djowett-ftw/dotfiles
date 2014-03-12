@@ -22,6 +22,7 @@ alias fakemail='sudo /usr/bin/python2.6 ~/bin/fakemail.py --host=localhost --por
 alias rss='script/server'
 alias rsg='script/generate'
 alias rsc='script/console'
+alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -m fast'
 
 # git
 alias ga.='ga .'
