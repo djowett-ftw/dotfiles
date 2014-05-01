@@ -1,4 +1,5 @@
 (setq cabbage-mac-use-shell-path t)
+(setq cabbage-ruby-version-manager 'rbenv)
 
 (add-to-list 'cabbage-bundle-dirs (expand-file-name "~/.emacs.d/bundles/"))
 (add-to-list 'cabbage-vendor-dirs (expand-file-name "~/.emacs.d/vendor/"))
@@ -24,6 +25,7 @@
                         project
                         python
                         ruby
+                        rails
                         irc
                         rect-mark
                         robot-mode
