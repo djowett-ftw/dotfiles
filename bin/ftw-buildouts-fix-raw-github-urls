@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+echo "Replace raw.github.com with raw.githubusercontent.com in:"
+
+FILES=`git grep "raw.github.com" | cut -d ':' -f 1 | sort | uniq`
+for name in $FILES; do
+    echo $name
+done
+
+echo ""
+read -p "Continue?"
+
+
+sed -i '' 's/https:\/\/raw.github.com\/4teamwork\/ftw-buildouts\/master/https:\/\/raw.githubusercontent.com\/4teamwork\/ftw-buildouts\/master/g' $FILES
+
+git status

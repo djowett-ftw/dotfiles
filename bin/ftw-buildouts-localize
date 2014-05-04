@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+
+CHECKOUT=/Users/jone/projects/packages/ftw-buildouts
+
+echo "Replace raw.githubusercontent.com with $CHECKOUT in:"
+
+FILES=`git grep "raw.githubusercontent.com" | cut -d ':' -f 1 | sort | uniq`
+for name in $FILES; do
+    echo $name
+done
+
+echo ""
+read -p "Continue?"
+
+
+CHECKOUTESC=`echo $CHECKOUT | sed -e 's:\/:\\\/:g'`
+sed -i '' "s/https:\/\/raw.githubusercontent.com\/4teamwork\/ftw-buildouts\/master/$CHECKOUTESC/g" $FILES
+
+git status
