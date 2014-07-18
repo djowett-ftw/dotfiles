@@ -68,6 +68,8 @@
   merge-diff = !sh -c 'git diff "$1^1"..."$1^2" "$@"' -
   rcp = !git config --get remote.origin.url | tr -d '\n' | pbcopy
   bcp = !git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
+  pull-request-for = "!f() { git log $1.. --merges --pretty="%s" | tail -n1 | awk '{print "$4"}' | sed -e 's:#::'; }; f"
+  open-pull-request-for = "!f() { open `git weburl`/pull/`git pull-request-for $1`; }; f"
 
 [url "git@github.com:"]
     insteadOf = "gh:"
