@@ -67,7 +67,7 @@ alias ssa='scm stash apply'
 alias ssl='scm stash list'
 
 rationalise-dot() {
-if [[ $LBUFFER = *.. ]]; then
+if [[ $LBUFFER != g* && $LBUFFER = *.. ]]; then
     LBUFFER+=/..
 else
     LBUFFER+=.
