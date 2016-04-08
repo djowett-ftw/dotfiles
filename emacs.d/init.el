@@ -2,3 +2,5 @@
 (load (concat cabbage-repository "cabbage"))
 (put 'narrow-to-region 'disabled nil)
 (put 'ido-exit-minibuffer 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

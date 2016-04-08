@@ -3,8 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-        isearch-repeat-forward
-        python-backspace
+        python-indent-dedent-line-backspace
         skeleton-pair-insert-maybe
         ))
 
