@@ -23,6 +23,7 @@ alias rss='script/server'
 alias rsg='script/generate'
 alias rsc='script/console'
 alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -m fast'
+alias redis='redis-server /usr/local/etc/redis.conf'
 
 # git
 alias ga.='ga .'
