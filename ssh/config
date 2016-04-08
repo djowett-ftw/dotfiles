@@ -2,3 +2,7 @@ ForwardAgent yes
 LocalCommand rsync -rL %d/.remote/ %r@%n:.jone/
 # PermitLocalCommand yes
 # LocalCommand rsync -e "ssh -o permitlocalcommand=no" -rL %d/.remote/ %r@%n:.jone/
+
+Host *
+  ForwardAgent yes
+  ServerAliveInterval 60
