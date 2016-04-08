@@ -72,3 +72,14 @@
 
   ;; continue
   (jone--plone-add-security-statement))
+
+
+
+;; GPG support
+(defun jone-configure-gpg ()
+  (let ((path-from-shell
+         (replace-regexp-in-string
+          "[[:space:]\n]*$" ""
+          (shell-command-to-string (concat shell-file-name " -l -c 'echo $GPG_AGENT_INFO'")))))
+    (setenv "GPG_AGENT_INFO" path-from-shell)))
+(add-hook 'cabbage-initialized-hook 'jone-configure-gpg)
