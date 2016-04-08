@@ -9,5 +9,6 @@ if [[ -s ~/.zshlocal ]] ; then source ~/.zshlocal ; fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
 
 eval "$(rbenv init -)"
