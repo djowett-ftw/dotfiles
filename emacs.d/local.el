@@ -36,6 +36,8 @@
                         rect-mark
                         robot-mode
 
+                        theme-roller
+
                         cabbage-developer
                         snippets
                         ))
