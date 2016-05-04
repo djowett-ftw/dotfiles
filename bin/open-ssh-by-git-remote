@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# Example: open-ssh-by-git-remote production
+
+# Make an ssh connection to a remote and cd into the directory.
+# This is useful when the remote is a deployment.
+
+remote_name=$1; shift
+url=`git config --get remote.$remote_name.url`
+
+if [[ $? == 1 ]]; then
+    echo "ERROR: Unkown remote."
+    echo ""
+    git remote -v | cut -d$'\t' -f1 | sort | uniq
+    exit 1
+fi
+
+user_and_host=`echo $url | cut -d ':' -f 1`
+path=`echo $url | cut -d ':' -f 2`
+
+echo "connecting to:       $user_and_host"
+echo "change directory to: $path"
+echo ""
+ssh $@ $user_and_host -t "cd $path; bash --login"
