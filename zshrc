@@ -12,3 +12,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Library/TeX/texbin:$PATH"
 
 eval "$(rbenv init -)"
+
+
+# use correct openssl lib
+export CPPFLAGS="${CPPFLAGS} -I$(brew --prefix openssl)/include"
+export LDFLAGS="${LDFLAGS} -L$(brew --prefix openssl)/lib"
