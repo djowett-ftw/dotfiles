@@ -6,3 +6,41 @@ LocalCommand rsync -rL %d/.remote/ %r@%n:.jone/
 Host *
   ForwardAgent yes
   ServerAliveInterval 60
+  IdentityFile ~/.ssh/id_rsa
+
+
+# WINTERTHUR
+# ssh wsstadt762.stadt.winroot.net
+Host                    hekate.win.ch
+    User                23bajo
+    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+
+Host                    wsstadt762.stadt.winroot.net
+    User                zope
+    ProxyCommand        ssh 23bajo@hekate.win.ch nc %h %p
+
+Host                    wsstadt730.stadt.winroot.net
+    User                zope
+    ProxyCommand        ssh 23bajo@hekate.win.ch nc %h %p
+
+
+
+# APPENZELL INNERRHODEN
+Host intranetai
+    User zope
+    Hostname 194.147.134.49
+    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+
+
+# ZUG
+Host zgchdev.4teamwork.ch
+    User zope
+    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+
+Host zgchtest.4teamwork.ch
+    User zope
+    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+
+Host zgchprod.4teamwork.ch
+    User zope
+    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
