@@ -45,7 +45,10 @@ versions_map = defaultdict(list)
 for line in version_lines:
     if not line.strip():
         continue
-    pkg, version = map(str.strip, line.split('#')[0].strip().split('='))
+    line = line.split('#')[0].strip()
+    if not line:
+        continue
+    pkg, version = map(str.strip, line.split('='))
     versions_map[pkg].append(version)
 
 new_version_lines = []
