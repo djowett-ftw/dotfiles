@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(cabbage-javascript-jslint-enabled t)
  '(cabbage-latex-enable-flymake nil)
- '(cabbage-org-files "/Users/jone/unison/documents/documents/notes/org/")
+ '(cabbage-org-files "/Users/jone/icloud/notes/org/")
  '(cabbage-plone-buildout--default-zope-user "zopemaster")
  '(cabbage-plone-buildout--use-local-pep8 t)
  '(cabbage-plone-known-buildout-instances
