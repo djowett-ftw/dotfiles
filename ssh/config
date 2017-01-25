@@ -32,6 +32,11 @@ Host intranetai
     ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
 
 
+Host gever.ai.ch
+    ProxyCommand ssh zope@geverdev.ai.ch nc %h %p 2>/dev/null
+    ForwardAgent yes
+
+
 # ZUG
 Host zgchdev.4teamwork.ch
     User zope
