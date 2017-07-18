@@ -48,8 +48,10 @@
  '(magit-git-standard-options (quote ("--no-pager")))
  '(magit-remote-ref-format (quote remote-slash-branch))
  '(magit-save-some-buffers nil)
- '(nxml-child-indent 4)
+ '(nxml-attribute-indent 4)
+ '(nxml-child-indent 2)
  '(nxml-outline-child-indent 4)
+ '(nxml-slash-auto-complete-flag t)
  '(term-scroll-show-maximum-output t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
