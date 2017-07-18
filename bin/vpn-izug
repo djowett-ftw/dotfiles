@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 
-# (read -s pw; security add-generic-password -s vpn-izug -a EXBAJO -w $pw)
-
 username=EXBAJO
-password=`security find-generic-password -s vpn-izug -g 2>&1 | grep password: | cut -d \" -f 2 | xargs echo -n`
-echo -n "token: " ; read token
-echo $password$token | sudo openconnect --juniper --passwd-on-stdin -u $username https://vpn.zg.ch/dana-na/auth/url_4/welcome.cgi
+sudo openconnect --juniper -u $username https://vpn.zg.ch/sas
