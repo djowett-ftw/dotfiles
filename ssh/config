@@ -10,6 +10,12 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 
 
+Host *.4teamwork.ch
+    User                jba
+
+Host heka.4teamwork.ch
+    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+
 # WINTERTHUR
 # ssh wsstadt762.stadt.winroot.net
 Host                    hekate.win.ch
@@ -29,12 +35,16 @@ Host                    wsstadt730.stadt.winroot.net
 # APPENZELL INNERRHODEN
 Host intranetai
     User zope
+    Hostname 194.147.134.48
+    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+
+Host ai-ux-teamraum.ai.ch
+    User zope
     Hostname 194.147.134.49
     ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
 
-
 Host gever.ai.ch
-    ProxyCommand ssh zope@geverdev.ai.ch nc %h %p 2>/dev/null
+    ProxyCommand ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
     ForwardAgent yes
 
 
