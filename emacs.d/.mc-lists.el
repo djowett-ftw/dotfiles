@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cabbage-kill-region-or-rm-kill-region-executor
         python-indent-dedent-line-backspace
         skeleton-pair-insert-maybe
         ))
