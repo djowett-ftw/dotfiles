@@ -4,3 +4,5 @@ gitconfig
 \#*
 emacs.d/backup*
 .rake_tasks-
+/emacs.d/ido.last
+/emacs.d/recentf
