@@ -9,12 +9,26 @@ Host *
   ServerAliveInterval 60
   IdentityFile ~/.ssh/id_rsa
 
-
-Host *.4teamwork.ch
+Host *.4teamwork.ch !sigma.4teamwork.ch
     User                jba
+    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
 
 Host heka.4teamwork.ch
+    User                jba
+#    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+
+Host kek.4teamwork.ch
+    User                jba
     ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+
+
+
+# riz wetzikon
+Host plone1.rizwetzikon.ch
+    User zope
+    ProxyCommand ssh zope@sigma.4teamwork.ch nc %h %p
+
+
 
 # WINTERTHUR
 # ssh wsstadt762.stadt.winroot.net
@@ -60,3 +74,9 @@ Host zgchtest.4teamwork.ch
 Host zgchprod.4teamwork.ch
     User zope
     ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+
+
+# SG
+Host *.ps3.sktsg.ch
+    ProxyCommand ssh 4teamwork@10.0.0.10 nc %h %p
+    ForwardAgent yes
