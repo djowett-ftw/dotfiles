@@ -2,6 +2,6 @@
 set -x verbose
 
 git pull
-curl http://downloads.buildout.org/2/bootstrap.py > bootstrap.py || exit $?
+curl -L http://downloads.buildout.org/2/bootstrap.py > bootstrap.py || exit $?
 git commit -a -m 'Update bootstrap.py' || exit $?
 git push || exit $?
