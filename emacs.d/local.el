@@ -55,10 +55,11 @@
       jabber-roster-show-bindings nil)
 
 (add-to-list 'completion-ignored-extensions ".egg-info")
+(add-to-list 'completion-ignored-extensions "__pycache__")
 
 (defun jone-after-loading-cabbage ()
   (setq *textmate-gf-exclude*
-        (replace-regexp-in-string "\|\\\\\.app\|" "|" *textmate-gf-exclude*))
+        (replace-regexp-in-string "\|\\\\\.app\|" "|node_modules|lib|.eggs|.tox" *textmate-gf-exclude*))
 
   (cabbage-global-set-key (kbd "C-c f S") 'jone--plone-add-security-statement)
   (cabbage-global-set-key (kbd "C-M-o") 'forward-sexp)
@@ -81,6 +82,14 @@
   ;; continue
   (jone--plone-add-security-statement))
 
+
+;; (defun jone-load-env-var (name)
+;;   (interactive)
+;;   (setenv
+;;    name
+;;    (replace-regexp-in-string
+;;     "[[:space:]\n]*$" ""
+;;     (shell-command-to-string (concat shell-file-name " -l -c 'echo $" name "'")))))
 
 
 ;; GPG support

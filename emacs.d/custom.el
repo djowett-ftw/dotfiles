@@ -15,7 +15,8 @@
      ("bin/instance1" "fg")
      ("bin/instanceadm" "fg")
      ("bin/serve" "")
-     ("bin/feedcenter" "fg"))))
+     ("bin/feedcenter" "fg")
+     ("bin/test"))))
  '(cabbage-project-location "/Users/jone/projects/")
  '(css-indent-offset 2)
  '(dabbrev-case-distinction nil)
@@ -36,6 +37,14 @@
    (quote
     ("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353")))
  '(explicit-shell-file-name nil)
+ '(git-commit-finish-query-functions (quote (git-commit-check-style-conventions ignore)))
+ '(git-commit-setup-hook
+   (quote
+    (git-commit-save-message git-commit-setup-changelog-support git-commit-turn-on-auto-fill git-commit-propertize-diff with-editor-usage-message)))
+ '(git-commit-style-convention-checks (quote (non-empty-second-line)))
+ '(git-commit-summary-max-length 150)
+ '(global-git-commit-mode t)
+ '(global-magit-file-mode nil)
  '(indent-tabs-mode nil)
  '(ispell-extra-args (quote ("--lang=de")))
  '(js-auto-indent-flag nil t)
@@ -45,13 +54,15 @@
  '(js-indent-level 4)
  '(js-paren-indent-offset 4)
  '(js-square-indent-offset 4)
+ '(magit-git-global-arguments (quote ("--no-pager")))
  '(magit-git-standard-options (quote ("--no-pager")))
  '(magit-remote-ref-format (quote remote-slash-branch))
+ '(magit-repository-directories (quote (("/Users/jone/projects/packages/" . 0))))
  '(magit-save-some-buffers nil)
  '(nxml-attribute-indent 4)
  '(nxml-child-indent 2)
  '(nxml-outline-child-indent 4)
- '(nxml-slash-auto-complete-flag t)
+ '(nxml-slash-auto-complete-flag t t)
  '(term-scroll-show-maximum-output t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
