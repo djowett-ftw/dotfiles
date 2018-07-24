@@ -70,6 +70,8 @@
   bcp = !git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
   pull-request-for = "!f() { git log $1.. --merges --pretty="%s" | tail -n1 | awk '{print "$4"}' | sed -e 's:#::'; }; f"
   open-pull-request-for = "!f() { open `git weburl`/pull/`git pull-request-for $1`; }; f"
+  ssh = !open-ssh-by-git-remote
+  fixup = commit --amend -C HEAD
 
 [url "git@github.com:"]
     insteadOf = "gh:"
