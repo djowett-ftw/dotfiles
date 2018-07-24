@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+function usage {
+    echo "ERROR: $1"
+    echo "Example usage:"
+    echo "verify-workflows-in-upgrade profiles/default upgrades/20170822144010_update_workflows"
+    exit 1;
+}
+
+if [[ $# != 2 ]]; then usage "Not enough arguments."; fi
+
+profiles_dir=$1
+upgrades_dir=$2
+
+if [[ $(dirname $profiles_dir) != "profiles" ]]; then usage "$profiles_dir is not in 'profiles'"; fi
+if [[ $(dirname $upgrades_dir) != "upgrades" ]]; then usage "$upgrades_dir is not in 'upgrades'"; fi
+
+profiles_workflows=$profiles_dir/workflows
+if [ ! -d $profiles_workflows ]; then usage "$profiles_workflows does not exist"; fi
+
+upgrades_workflows=$upgrades_dir/workflows
+if [ ! -d $upgrades_workflows ]; then usage "$upgrades_workflows does not exist"; fi
+
+for name in $(ls $upgrades_workflows); do
+    echo ""
+    echo $name
+
+    profile_definition=$profiles_workflows/$name/definition.xml
+    if [ ! -f $profile_definition ]; then echo "$profile_definition does not exist"; break; fi
+
+    upgrades_definition=$profiles_workflows/$name/definition.xml
+    if [ ! -f $upgrades_definition ]; then echo "$upgrades_definition does not exist"; break; fi
+
+    diff $profile_definition $upgrades_definition
+done
