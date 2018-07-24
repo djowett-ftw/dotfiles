@@ -7,6 +7,10 @@ if [[ -d ./.svn ]] {
   echo "[%{\033[0;36m%}SVN$notclean%{\033[00m%}]"
 
 } else {
+  branchinfo=`git branch -vv 2> /dev/null|grep '^*'`
+  branch=`echo "$branchinfo" | sed -e 's/* \([^ ]*\).*$/\1/'`
+  echo "[%{\033[0;32m%}$branch%{\033[00m%}]"
+  exit
 
   prefix=''
   branchinfo=`git branch -vv 2> /dev/null|grep '^*'`
@@ -27,7 +31,6 @@ if [[ -d ./.svn ]] {
     not_pulled=''
     not_pushed=''
     not_committed=''
-
     if [[ `echo $files | grep '^[CM]' | wc -l` -gt 0 ]]; then
         changed='%{\033[1;31m%}*'
     fi
@@ -64,4 +67,3 @@ if [[ -d ./.svn ]] {
     echo "[$prefix%{\033[0;32m%}$branch$changed$removed$new$not_pushed$not_pulled$not_committed%{\033[00m%}]"
   }
 }
-
