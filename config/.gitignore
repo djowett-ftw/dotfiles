@@ -1,3 +1,5 @@
 *
 !.gitignore
 !fish/
+!flake8
+!pycodestyle
