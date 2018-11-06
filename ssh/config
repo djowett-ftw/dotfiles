@@ -11,7 +11,7 @@ Host *
 
 Host *.4teamwork.ch !sigma.4teamwork.ch
     User                jba
-    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
 
 Host heka.4teamwork.ch
     User                jba
