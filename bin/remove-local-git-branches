@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+pwd=`pwd`
+
+if [[ -e ".git" ]]; then
+    repos=$pwd
+else
+    echo "No repository found."
+    exit 1
+fi
+
+print_repo_path () {
+    dir=`dirname $1`
+    name=`basename $1`
+    current_branch=`git branch -vv | grep '^*' | sed -e 's/^\* \([^ ]*\).*/\1/'`
+    echo -e "\033[0;36m$dir/\033[0;32m$name\033[0m ($current_branch)"
+}
+
+print_branch_ref () {
+    remote=`dirname $1`
+    name=`basename $1`
+    if [[ "$remote" == "." ]]; then
+        echo -e " - \033[0;33m$name\033[0m"
+    else
+        remote_url=`git config --get remote.$remote.url`
+        echo -e " - \033[0;36m$remote/\033[0;31m$name \033[0m(\033[0;36m$remote_url\033[0m)"
+    fi
+}
+
+remove_branches () {
+    for branch in $@; do
+        echo -e "  $\033[0;35m git branch -D $branch\033[0m"
+        git branch -D $branch
+    done
+}
+
+
+branches=`git branch | grep -v 'master' | grep -v '^* '`
+if [[ "$branches" != "" ]]; then
+    print_repo_path `pwd`
+    for branch in $branches; do
+        print_branch_ref $branch
+    done
+
+    while true; do
+        read -p "Delete those branches? " yn
+        case $yn in
+            [Yy]* ) remove_branches $branches; break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+
+    echo ""
+
+fi
