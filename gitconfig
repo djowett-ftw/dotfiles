@@ -8,6 +8,7 @@
     editor = /usr/local/bin/emacsclient
     autocrlf = input
     whitespace = tabwidth=4,tab-in-indent,cr-at-eol,trailing-space
+    pager = less -F -X
 
 [commit]
     gpgsign = true
