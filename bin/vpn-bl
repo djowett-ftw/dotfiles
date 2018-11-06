@@ -1,13 +1,4 @@
 #!/usr/bin/env sh
 
-# (read -s pw; security add-generic-password -s vpn-bl -a X101065 -w $pw)
-
-security find-generic-password -s vpn-bl -g 2>&1 | grep password: | cut -d \" -f 2 | xargs echo -n | pbcopy
-
-(sleep 5 ; echo "clearing clipboard"; echo "" | pbcopy) &
-
 username=X101065
-echo "PLEASE PASTE PASSWORD"
-echo ""
-
 sudo openconnect -u $username --script ~/.bin/_vpn-bl_vpnc-script-split https://vpn.bl.ch/
