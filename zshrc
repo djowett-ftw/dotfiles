@@ -35,5 +35,5 @@ alias grs='git reset --hard'
 alias gs='git status'
 alias go='git browse'
 
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+if [ -x "$(command -v rbenv)" ]; then eval "$(rbenv init -)"; fi
+if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
