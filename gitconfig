@@ -1,0 +1,62 @@
+[user]
+    name = Jonas Baumann
+    email = jone@jone.ch
+    signingkey = C92518B2
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = /usr/local/bin/emacsclient
+    autocrlf = input
+    whitespace = tabwidth=4,tab-in-indent,cr-at-eol,trailing-space
+
+[commit]
+    gpgsign = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[apply]
+    whitespace = nowarn
+
+[format]
+    pretty = %C(blue)%h%Creset %s %C(green)%d%Creset [%C(red)%an%Creset, %C(cyan)%cr%Creset] %C(bold reverse)%N%Creset
+
+[github]
+    user = jone
+
+[mergetool.ediff]
+    cmd = /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+
+[mergetool]
+    prompt = false
+
+[merge]
+    tool = ediff
+    ff = false
+
+[push]
+    default = tracking
+
+[branch]
+    autosetuprebase = always
+
+[rerere]
+    enabled = 0
+
+[advice]
+    statusHints = false
+    detachedHead = false
+
+[alias]
+    weburl = !git config --get remote.origin.url | sed -e 's/git:\\/\\/github.com/https:\\/\\/github.com/' -e 's/git@github.com:/https:\\/\\/github.com\\//' -e 's/\\.git$//' -e 's/gitolite@git.4teamwork.ch:\\(.*\\)/https:\\/\\/git.4teamwork.ch\\/?p=\\1.git/'
+    browse = !open `git weburl`
+    merge-diff = !sh -c 'git diff "$1^1"..."$1^2" "$@"' -
+    rcp = !git config --get remote.origin.url | tr -d '\n' | pbcopy
+    bcp = !git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
+    pull-request-for = "!f() { git log $1.. --merges --pretty="%s" | tail -n1 | awk '{print "$4"}' | sed -e 's:#::'; }; f"
+    open-pull-request-for = "!f() { open `git weburl`/pull/`git pull-request-for $1`; }; f"
+    ssh = !open-ssh-by-git-remote
+    fixup = commit --amend -C HEAD
