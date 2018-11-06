@@ -1,19 +1,38 @@
-export SHELL=/bin/zsh
-source ~/.zsh/config
-source ~/.zsh/aliases
-source ~/.zsh/completion
-source ~/.zsh/gpg
+#!/bin/zsh
 
-# include ~/.zshlocal if existing:
-if [[ -s ~/.zshlocal ]] ; then source ~/.zshlocal ; fi
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
+export ZSH=$HOME/.oh-my-zsh
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=/usr/local/bin/emacsclient
+export ALTERNATE_EDITOR=vim
+export PYTHONSTARTUP=~/.pythonstartup
+export FIGNORE=".egg-info:.pyc:.pyo:.mo"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Library/TeX/texbin:$PATH"
+ZSH_THEME="robbyrussell"
+ZSH_CUSTOM=$HOME/.zsh
+CASE_SENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# use correct openssl lib
-export CPPFLAGS="${CPPFLAGS} -I$(brew --prefix openssl)/include"
-export LDFLAGS="${LDFLAGS} -L$(brew --prefix openssl)/lib"
+plugins=(
+    django
+    git
+    jone
+    pyenv
+    rbenv
+)
 
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+source $ZSH/oh-my-zsh.sh
+
+alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -m fast'
+alias e='$EDITOR -n'
+alias d='mvimdiff'
+alias fakemail='sudo /usr/bin/python2.6 ~/bin/fakemail.py --host=localhost --port=25 --path=$HOME/temp/mails --background --open'
+
+# git
+alias ga.='ga .'
+alias gb='git branch -v'
+alias grs='git reset --hard'
+alias gs='git status'
+alias go='git browse'

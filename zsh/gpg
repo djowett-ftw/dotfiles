@@ -1,7 +1,0 @@
-# brew install gnupg gpg-agent pinentry-mac
-
-if [ ! "$(pgrep gpg-agent)" ]; then
-    gpg-agent --daemon 
-fi
-
-GPG_AGENT_INFO="/Users/jone/.gnupg/S.gpg-agent"

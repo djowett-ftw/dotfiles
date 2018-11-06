@@ -1,2 +1,0 @@
-#compdef jssh
-compdef jssh=ssh

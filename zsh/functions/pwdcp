@@ -1,1 +1,0 @@
-echo -n `pwd | sed 's/ /\\\\ /g'`/$1 | pbcopy

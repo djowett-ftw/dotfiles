@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-if [ -f ~/.emacsserver ]; then
-    emacsclient $*
-else
-    open -a emacs $*
-fi
-

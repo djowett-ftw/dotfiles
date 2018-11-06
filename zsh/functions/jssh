@@ -1,1 +1,0 @@
-ssh $* -oPermitLocalCommand=yes -t "HOME=~/.jone ; which zsh &> /dev/null && exec zsh || exec bash"
