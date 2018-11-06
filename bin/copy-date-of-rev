@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo -n `git show --format="XXXXXX %ai XXXXXXX" $1 | grep XXXX | cut -d ' ' -f 2` |pbcopy
