@@ -19,8 +19,6 @@ plugins=(
     django
     git
     jone
-    pyenv
-    rbenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -36,3 +34,6 @@ alias gb='git branch -v'
 alias grs='git reset --hard'
 alias gs='git status'
 alias go='git browse'
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
