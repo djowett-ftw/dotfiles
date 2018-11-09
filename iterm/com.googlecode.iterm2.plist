@@ -312,6 +312,13 @@ Maximize Active Pane</string>
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x50-0x120000</key>
+		<dict>
+			<key>Action</key>
+			<integer>32</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x53-0x120000</key>
 		<dict>
 			<key>Action</key>
@@ -353,6 +360,13 @@ Maximize Active Pane</string>
 			<integer>10</integer>
 			<key>Text</key>
 			<string>[C</string>
+		</dict>
+		<key>0x70-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>39</integer>
+			<key>Text</key>
+			<string></string>
 		</dict>
 		<key>0x73-0x100000</key>
 		<dict>
@@ -495,7 +509,7 @@ Maximize Active Pane</string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 362 796 473 0 0 1440 877 </string>
+	<string>269 384 796 473 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1440 873 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
