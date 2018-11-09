@@ -37,3 +37,4 @@ alias go='git browse'
 
 if [ -x "$(command -v rbenv)" ]; then eval "$(rbenv init -)"; fi
 if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
+if [ -x "$(command -v pyenv-virtualenv-init)" ]; then eval "$(pyenv virtualenv-init -)"; fi
