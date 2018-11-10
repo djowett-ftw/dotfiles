@@ -1,3 +1,3 @@
 [submodule "emacs.d/vendor/robot-mode"]
-	path = emacs.d/vendor/robot-mode
+	path = emacs.d-cabbage/vendor/robot-mode
 	url = https://github.com/sakari/robot-mode.git
