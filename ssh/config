@@ -8,6 +8,8 @@ Host *
   ForwardAgent yes
   ServerAliveInterval 60
   IdentityFile ~/.ssh/id_rsa
+  UseKeychain yes
+  AddKeysToAgent yes
 
 Host *.4teamwork.ch !sigma.4teamwork.ch
     User                jba
