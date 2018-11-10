@@ -52,6 +52,10 @@ export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
 export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig $PKG_CONFIG_PATH"
 
+# openssl
+export LDFLAGS="-L/usr/local/opt/openssl/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 
 #### MacOS
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
