@@ -256,6 +256,14 @@ Maximize Active Pane</string>
 			<key>Text</key>
 			<string>BC5D029C-D34C-4446-BF55-1377DCCD816C</string>
 		</dict>
+		<key>0x46-0x120000</key>
+		<dict>
+			<key>Action</key>
+			<integer>25</integer>
+			<key>Text</key>
+			<string>Find...
+Find.Find...</string>
+		</dict>
 		<key>0x49-0x120000</key>
 		<dict>
 			<key>Action</key>
@@ -333,6 +341,13 @@ Maximize Active Pane</string>
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x66-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>11</integer>
+			<key>Text</key>
+			<string>0x004</string>
+		</dict>
 		<key>0x69-0x100000</key>
 		<dict>
 			<key>Action</key>
@@ -361,6 +376,13 @@ Maximize Active Pane</string>
 			<key>Text</key>
 			<string>[C</string>
 		</dict>
+		<key>0x6f-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>f</string>
+		</dict>
 		<key>0x70-0x100000</key>
 		<dict>
 			<key>Action</key>
@@ -374,6 +396,13 @@ Maximize Active Pane</string>
 			<integer>30</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0x75-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>b</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -467,10 +496,18 @@ Maximize Active Pane</string>
 			<string></string>
 		</dict>
 	</dict>
+	<key>HideActivityIndicator</key>
+	<true/>
 	<key>HideTab</key>
 	<false/>
+	<key>HideTabCloseButton</key>
+	<true/>
+	<key>HideTabNumber</key>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>JobName</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -514,9 +551,9 @@ Maximize Active Pane</string>
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 125 796 486 0 0 1440 877 </string>
+	<string>269 147 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
+	<string>0 8 1438 869 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -749,7 +786,7 @@ Maximize Active Pane</string>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1162,6 +1199,8 @@ Maximize Active Pane</string>
 	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>563492838.33665001</real>
+	<key>OpenBookmark</key>
+	<true/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
@@ -1213,11 +1252,27 @@ Maximize Active Pane</string>
 	<date>2018-11-09T21:47:48Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowBookmarkName</key>
+	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
+	<key>ShowNewOutputIndicator</key>
+	<false/>
+	<key>ShowPaneTitles</key>
+	<true/>
+	<key>StretchTabsToFillBar</key>
+	<false/>
 	<key>SwitchTabModifier</key>
 	<integer>6</integer>
 	<key>TabStyle</key>
 	<integer>0</integer>
+	<key>TabStyleWithAutomaticOption</key>
+	<integer>4</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
 	<key>UseLionStyleFullscreen</key>
+	<false/>
+	<key>WindowNumber</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
