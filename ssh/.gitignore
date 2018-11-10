@@ -1,3 +1,4 @@
 *
 !config
 !.gitignore
+!authorized_keys
