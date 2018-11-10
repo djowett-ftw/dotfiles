@@ -38,3 +38,16 @@ alias go='git browse'
 if [ -x "$(command -v rbenv)" ]; then eval "$(rbenv init -)"; fi
 if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
 if [ -x "$(command -v pyenv-virtualenv-init)" ]; then eval "$(pyenv virtualenv-init -)"; fi
+
+
+#### HOMEBREW
+# zlib
+export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig $PKG_CONFIG_PATH"
+
+# sqlite
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
+export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig $PKG_CONFIG_PATH"
