@@ -30,4 +30,5 @@ brew "zlib"
 brew "zsh"
 
 cask "emacs"
+cask "homebrew/cask-versions/java8"
 cask "mactex"
