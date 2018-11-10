@@ -51,3 +51,7 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
 export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig $PKG_CONFIG_PATH"
+
+
+#### MacOS
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
