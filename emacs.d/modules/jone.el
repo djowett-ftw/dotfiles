@@ -35,4 +35,12 @@ at the nearest location."
       (forward-char 2))))
 
 
+(defun jone-sort-lines-at-point ()
+  "Sorts lines of the block at point."
+  (interactive)
+  (mark-paragraph)
+  (let ((sort-fold-case t))
+    (call-interactively 'sort-lines)))
+
+
 (provide 'jone)

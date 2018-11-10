@@ -226,7 +226,8 @@
 
 
 (use-package jone
-  :bind (("C-c f c" . jone-make-changelog-entry)))
+  :bind (("C-c f c" . jone-make-changelog-entry)
+	 ("C-c f s" . jone-sort-lines-at-point)))
 
 
 (provide 'packages-cfg)
