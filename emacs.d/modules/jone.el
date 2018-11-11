@@ -43,4 +43,12 @@ at the nearest location."
     (call-interactively 'sort-lines)))
 
 
+(defun jone-discover-projects-and-switch ()
+  "First discover projects in ~/projects, then open a new project."
+  (interactive)
+  (projectile-discover-projects-in-search-path)
+  (projectile-cleanup-known-projects)
+  (call-interactively 'projectile-persp-switch-project))
+
+
 (provide 'jone)

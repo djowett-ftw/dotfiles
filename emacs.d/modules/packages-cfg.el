@@ -222,7 +222,7 @@
 
 (use-package persp-projectile
   :ensure t
-  :bind (("C-x p" . projectile-persp-switch-project)))
+  :bind (("C-x p" . jone-discover-projects-and-switch)))
 
 
 (use-package jone
