@@ -30,9 +30,11 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 
+cask "beardedspice"
 cask "emacs"
 cask "homebrew/cask-versions/java8"
 cask "mactex"
+cask "spotify"
 
 
 # pinentry setup:
