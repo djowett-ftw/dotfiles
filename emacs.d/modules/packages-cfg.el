@@ -221,13 +221,12 @@
   :config (persp-mode))
 
 (use-package persp-projectile
-  :ensure t
-  :bind (("C-x p" . jone-discover-projects-and-switch)))
-
+  :ensure t)
 
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
-	 ("C-c f s" . jone-sort-lines-at-point)))
+	 ("C-c f s" . jone-sort-lines-at-point)
+	 ("C-x p" . jone-discover-projects-and-switch)))
 
 
 (provide 'packages-cfg)
