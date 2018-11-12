@@ -52,7 +52,7 @@ for line in version_lines:
     versions_map[pkg].append(version)
 
 new_version_lines = []
-for pkg, versions in sorted(versions_map.items()):
+for pkg, versions in sorted(versions_map.items(), key=lambda s: s[0].lower()):
     if len(versions) == 1:
         version = versions[0]
     else:
