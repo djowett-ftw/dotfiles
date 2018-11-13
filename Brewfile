@@ -35,6 +35,7 @@ cask "emacs"
 cask "homebrew/cask-versions/java8"
 cask "mactex"
 cask "spotify"
+cask "wkhtmltopdf"
 
 
 # pinentry setup:
