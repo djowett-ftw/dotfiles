@@ -15,6 +15,7 @@ brew "libtiff"
 brew "libxslt"
 brew "little-cms2"
 brew "macvim"
+brew "openconnect"
 brew "openssl"
 brew "pinentry-mac"
 brew "postgres", args: ["with-python"]
