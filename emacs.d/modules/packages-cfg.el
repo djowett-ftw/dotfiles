@@ -226,6 +226,7 @@
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
 	 ("C-c f s" . jone-sort-lines-at-point)
+	 ("C-c f f" . jone-run-server-in-pdb-mode)
 	 ("C-x p" . jone-discover-projects-and-switch)))
 
 

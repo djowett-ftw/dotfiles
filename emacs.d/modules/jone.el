@@ -51,4 +51,13 @@ at the nearest location."
   (call-interactively 'projectile-persp-switch-project))
 
 
+(defun jone-run-server-in-pdb-mode ()
+  "Start the nearest supported server (zope instance, ..) in pdb-mode."
+  (interactive)
+  (let* ((program (jone-locate-first-dominating-file '("bin/instance")))
+	 (command (concat program " fg")))
+    (pdb command)
+    (rename-buffer command)))
+
+
 (provide 'jone)
