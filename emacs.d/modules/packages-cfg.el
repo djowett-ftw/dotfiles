@@ -123,8 +123,8 @@
 (use-package flycheck
   :ensure t
   :defer 5
+  :init (global-flycheck-mode 1)
   :config (progn
-            (global-flycheck-mode 1)
             ;; https://github.com/purcell/exec-path-from-shell
             ;; only need exec-path-from-shell on OSX
             ;; this hopefully sets up path and other vars better
@@ -139,10 +139,16 @@
             (flycheck-add-mode 'javascript-eslint 'web-mode)
             (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
+	    (setq flycheck-python-flake8-executable "~/.local/venvs/flake8/bin/python")
+
             ;; customize flycheck temp file prefix
             (setq-default flycheck-temp-prefix ".flycheck")
 
             ))
+
+(use-package flycheck-popup-tip
+  :ensure t
+  :init (flycheck-popup-tip-mode))
 
 (use-package drag-stuff
   :ensure t

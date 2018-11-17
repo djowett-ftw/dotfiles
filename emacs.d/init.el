@@ -7,7 +7,10 @@
 (load custom-file 'noerror)
 
 (add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+
+(let ((paths-to-add '("/usr/local/bin" "~/.local/bin")))
+  (setenv "PATH" (concat (getenv "PATH") (mapconcat 'identity paths-to-add ":")))
+  (setq exec-path (append exec-path paths-to-add)))
 
 (require 'defuns-cfg)
 (require 'enlarge-cfg)
