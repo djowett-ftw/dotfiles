@@ -60,4 +60,10 @@ at the nearest location."
     (rename-buffer command)))
 
 
+(defun jone-plone-reload ()
+  "Reload code in Plone with plone.reload."
+  (interactive)
+  (shell-command "plone-reload"))
+
+
 (provide 'jone)

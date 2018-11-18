@@ -1,0 +1,41 @@
+#!/usr/bin/python
+
+import base64
+import re
+import sys
+import urllib
+import urllib2
+
+
+URLS = ('http://localhost:8080',
+        'http://localhost:9080')
+
+USERS = (('zopemaster', 'admin'),
+         ('admin', 'admin'))
+
+
+errors = []
+
+for url_base in URLS:
+    for username, password in USERS:
+        ac_value = base64.encodestring(':'.join((username.encode('hex'),
+                                                 password.encode('hex')))).strip()
+        headers = {'Cookie': '__ac={}'.format(ac_value)}
+        url = '{}/@@reload'.format(url_base)
+
+        request = urllib2.Request(url, urllib.urlencode({'action': 'code'}), headers)
+        try:
+            response = urllib2.urlopen(request)
+        except (urllib2.HTTPError, urllib2.URLError), exc:
+            errors.append('{} @ {} >> {}'.format(username.rjust(10), url_base, str(exc)))
+        else:
+            html = response.read()
+            xpr = re.compile('<pre.*?>(.*?)</pre>', re.DOTALL)
+            match = xpr.search(html)
+            if match:
+                print '{} @ {} >> {}'.format(username.rjust(10), url_base, match.groups()[0])
+                sys.exit(0)
+
+
+print >>sys.stderr, '\n'.join(errors)
+sys.exit(1)
