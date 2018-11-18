@@ -139,8 +139,6 @@
             (flycheck-add-mode 'javascript-eslint 'web-mode)
             (flycheck-add-mode 'javascript-eslint 'js2-mode)
 
-	    (setq flycheck-python-flake8-executable "~/.local/venvs/flake8/bin/python")
-
             ;; customize flycheck temp file prefix
             (setq-default flycheck-temp-prefix ".flycheck")
 
@@ -149,6 +147,13 @@
 (use-package flycheck-popup-tip
   :ensure t
   :init (flycheck-popup-tip-mode))
+
+(use-package pyenv-mode
+  :ensure t
+  :init (pyenv-mode))
+
+(use-package pyenv-mode-auto
+  :ensure t)
 
 (use-package drag-stuff
   :ensure t
