@@ -10,6 +10,7 @@
 graph.pdf
 uuid.txt
 *_flymake.*
+.flycheck_*
 *.pyc
 output.html
 ~$*
