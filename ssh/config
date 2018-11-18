@@ -1,9 +1,3 @@
-ForwardAgent yes
-#UseKeychain yes
-LocalCommand rsync -rL %d/.remote/ %r@%n:.jone/
-# PermitLocalCommand yes
-# LocalCommand rsync -e "ssh -o permitlocalcommand=no" -rL %d/.remote/ %r@%n:.jone/
-
 Host *
   ForwardAgent yes
   ServerAliveInterval 60
@@ -11,24 +5,15 @@ Host *
   UseKeychain yes
   AddKeysToAgent yes
 
-Host *.4teamwork.ch !sigma.4teamwork.ch
+
+Host			*.4teamwork.ch !sigma.4teamwork.ch
     User                jba
     ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
 
-Host heka.4teamwork.ch
-    User                jba
-#    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
 
-Host kek.4teamwork.ch
-    User                jba
-    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
-
-
-
-# riz wetzikon
-Host plone1.rizwetzikon.ch
-    User zope
-    ProxyCommand ssh zope@sigma.4teamwork.ch nc %h %p
+Host			plone1.rizwetzikon.ch
+    User                zope
+    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
 
 
 
