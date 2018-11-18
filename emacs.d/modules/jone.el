@@ -56,6 +56,7 @@ at the nearest location."
   (interactive)
   (let* ((program (jone-locate-first-dominating-file '("bin/instance")))
 	 (command (concat program " fg")))
+    (if (get-buffer command) (kill-buffer command))
     (pdb command)
     (rename-buffer command)))
 
