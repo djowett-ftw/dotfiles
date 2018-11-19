@@ -27,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -m fast'
 alias e='$EDITOR -n'
 alias d='mvimdiff'
-alias fakemail='sudo /usr/bin/python2.6 ~/bin/fakemail.py --host=localhost --port=25 --path=$HOME/temp/mails --background --open'
+alias fakemail='sudo ~/.bin/fakemail.py --host=localhost --port=25 --path=$HOME/temp/mails --background --open'
 
 # git
 alias ga.='ga .'
