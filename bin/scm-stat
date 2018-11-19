@@ -1,0 +1,502 @@
+#!/usr/bin/env python
+
+from optparse import OptionParser
+import os
+import re
+import shlex
+import subprocess
+import sys
+
+
+def memoize(func):
+    """Decorator for caching the return value of a function or method.
+    """
+    def _mem(*args, **kwargs):
+        """Caching wrapper.
+        """
+        key = (args, tuple(kwargs.items()))
+        dic = getattr(func, '_memoize_dict', {})
+        if key not in dic.keys():
+            dic[key] = func(*args, **kwargs)
+            setattr(func, '_memoize_dict', dic)
+        return dic[key]
+    # no error
+    _mem.wrapped_func = func  # pylint: disable-msg=W0612
+    # error
+    return _mem
+
+
+class MainCommand(object):
+
+    def __init__(self, argv):
+        parser = OptionParser()
+        parser.add_option('-r', '--recursive', dest='recursive',
+                          action='store_true', default=False,
+                          help='Search repositories recursively.')
+
+        parser.add_option('-a', '--ahead-only', dest='ahead_only',
+                          action='store_true', default=False,
+                          help='Only list repositories which have not '
+                          'pushed commits (ahead).')
+
+        parser.add_option('-b', '--non-master', dest='non_master_only',
+                          action='store_true', default=False,
+                          help='On a non-master branch.')
+
+        parser.add_option('-d', '--dirty-only', dest='dirty_only',
+                          action='store_true', default=False,
+                          help='Only list repositories which are dirty.')
+
+        parser.add_option('-v', '--verbose', dest='verbose',
+                          action='store_true', default=False,
+                          help='Be more verbose.')
+
+        self.options, self.arguments = parser.parse_args(argv)
+
+    def __call__(self):
+        table = ASCIITable('name', 'flags', 'branch', 'scm')
+        for repo in self.repositories():
+            row = self.get_rows_of_repo(repo)
+            if row is not None:
+                table.push(row)
+
+        table()
+
+    def get_rows_of_repo(self, repo):
+        if self.options.ahead_only and not repo.ahead():
+            return None
+
+        elif self.options.dirty_only and not repo.is_dirty():
+            return None
+
+        branch = repo.branch()
+        if self.options.non_master_only and branch in ['trunk', 'master']:
+            return None
+
+        if self.options.recursive:
+            rows = [os.path.relpath(repo.path, os.getcwd()),
+                    self.get_change_flags_for_repo(repo)]
+        else:
+            rows = [repo.name,
+                    self.get_change_flags_for_repo(repo)]
+
+        if branch in ['trunk', 'master']:
+            rows.append(ColorString(branch, 'green'))
+        else:
+            rows.append(ColorString(branch, 'yellow'))
+
+        rows.append(repo.scmtype)
+
+        return rows
+
+    def get_change_flags_for_repo(self, repo):
+        flags = ColorString('', 'none')
+
+        changed_files = repo.changed_files()
+        if changed_files:
+            flags += ColorString('*%i ' % changed_files, 'red')
+
+        removed_files = repo.removed_files()
+        if removed_files:
+            flags += ColorString('!%i ' % removed_files, 'red_bold')
+
+        new_files = repo.new_files()
+        if new_files:
+            flags += ColorString('?%i ' % new_files, 'blue')
+
+        ahead = repo.ahead()
+        if ahead:
+            flags += ColorString('^%s ' % ahead, 'purple')
+
+        behind = repo.behind()
+        if behind:
+            flags += ColorString('v%s ' % behind, 'magenta')
+
+        uncommitted = repo.uncommitted()
+        if uncommitted:
+            flags += ColorString('$%s ' % uncommitted, 'red')
+
+        if not repo.upstream():
+            flags += ColorString('U', 'purple_bold')
+
+        return flags
+
+    @memoize
+    def repositories(self):
+        if self.options.recursive:
+            return self.repositories_recursive()
+
+        else:
+            return self.repositories_in_current_directory()
+
+    def repositories_in_current_directory(self):
+        repos = []
+
+        for name in sorted(os.listdir('.')):
+            if not os.path.isdir(name):
+                continue
+
+            path = os.path.abspath(name)
+            repo = Repository.get_repository(path)
+            if repo:
+                repos.append(repo)
+
+        return repos
+
+    def repositories_recursive(self):
+        repos = []
+
+        if self.options.verbose:
+            print 'Finding git repositories.'
+        # get git repositories
+        cmd = "find . -name '*.git' -type d"
+        exitcode_, output, errors_ = runcmd(cmd, cwd=os.getcwd())
+        lines = output.split('\n')
+        num_lines = len(lines)
+
+        if self.options.verbose:
+            print 'Found %s git repositories.' % num_lines
+
+        for i, subpath in enumerate(lines):
+            if self.options.verbose:
+                self._progress(i, num_lines, 'git')
+            path = os.path.dirname(os.path.abspath(subpath.strip()))
+            repo = Repository.get_repository(path)
+            if repo:
+                repos.append(repo)
+
+        # get svn repositories
+        if self.options.verbose:
+            print 'Finding svn repositories.'
+        cmd = "find . -name '*.svn' -type d | grep -v 'src/.svn' | sed -e 's//.svn$//'"
+        exitcode_, output, errors_ = runcmd(cmd, cwd=os.getcwd())
+
+        lines = output.strip().split('\n')
+        if self.options.verbose:
+            print 'Found %s svn repositories.' % num_lines
+
+        # filter results so that only the top repo directories stay
+        for i, path in enumerate(lines):
+            if self.options.verbose:
+                self._progress(i, num_lines, 'svn')
+
+            parent = os.path.dirname(path)
+            if parent not in lines:
+                repo = Repository.get_repository(os.path.abspath(path))
+                repos.append(repo)
+
+        return repos
+
+    def _progress(self, num, total, repo_type):
+        if num % 10 == 0:
+            print 'Scanned %s of %s %s repositories' % (
+                num, total, repo_type)
+
+
+class ColorString(str):
+    """A colored string representation with fixed length and able to
+    concatenate itself with other color strings.
+    """
+
+    COLORS = {
+        'red': '\033[0;31m%s\033[00m',
+        'green': '\033[0;32m%s\033[00m',
+        'yellow': '\033[0;33m%s\033[00m',
+        'blue': '\033[0;34m%s\033[00m',
+        'purple': '\033[0;35m%s\033[00m',
+        'magenta': '\033[0;36m%s\033[00m',
+        'red_bold': '\033[1;31m%s\033[00m',
+        'green_bold': '\033[1;32m%s\033[00m',
+        'yellow_bold': '\033[1;33m%s\033[00m',
+        'yellow_bold': '\033[1;33m%s\033[00m',
+        'blue_bold': '\033[1;34m%s\033[00m',
+        'purple_bold': '\033[1;35m%s\033[00m',
+        'magenta_bold': '\033[1;36m%s\033[00m',
+        'none': '%s',
+    }
+
+    def __new__(cls, value, colorname):
+        colorized = ColorString.COLORS[colorname] % value
+        self = str.__new__(cls, colorized)
+        self.value = value
+        return self
+
+    def __len__(self):
+        return len(self.value)
+
+    def ljust(self, width):
+        s = str(self)
+        if width - len(self) > 0:
+            s += ' ' * (width - len(self))
+        return s
+
+    def __add__(self, other):
+        if isinstance(other, ColorString):
+            value = self.value + other.value
+        else:
+            value = self.value + str(other)
+
+        newstr = str(self) + str(other)
+        newobj = ColorString(newstr, 'none')
+        newobj.value = value
+        return newobj
+
+
+@memoize
+def runcmd(command, cwd=None):
+    """Advanced runcmd function with support for pipes and
+    subcommands.
+    E.g.:
+    'ps aux | grep iTerm'
+    'echo "foo" `ps aux | grep `echo iTerm` | cut -d \' \' -f 10` "bar"'
+    """
+    if isinstance(command, unicode):
+        command = command.encode('utf-8')
+
+    subcommand = re.match('^(.*?)`(.*)`(.*?)$', command, re.MULTILINE)
+    if subcommand:
+        subresult = runcmd(subcommand.groups()[1])
+        if subresult[0]:
+            return subresult
+
+        command = ''.join((
+                subcommand.groups()[0],
+                subresult[1],
+                subcommand.groups()[2]))
+
+    commands = command.split('|')
+    prev_proc = None
+
+    for cmd in commands:
+        if prev_proc:
+            input = prev_proc.stdout
+        else:
+            input = None
+
+        prev_proc = subprocess.Popen(shlex.split(cmd),
+                                     stderr=subprocess.PIPE,
+                                     stdout=subprocess.PIPE,
+                                     stdin=input,
+                                     cwd=cwd)
+
+    output, errors = prev_proc.communicate()
+    return prev_proc.poll(), output, errors
+
+
+def runcmd_get_exitcode(command, cwd=None):
+    return runcmd(command, cwd=cwd)[0]
+
+
+def runcmd_get_stdout(command, cwd=None):
+    return runcmd(command, cwd=cwd)[1]
+
+
+class Repository(object):
+    """Represents a version control repository.
+    """
+
+    @classmethod
+    @memoize
+    def get_repository(cls, path):
+        if '.svn' in os.listdir(path):
+            return SvnRepository(path)
+
+        elif '.git' in os.listdir(path):
+            cmd = 'git config --get svn-remote.svn.url'
+            if runcmd_get_exitcode(cmd, cwd=path):
+                return GitRepository(path)
+
+            else:
+                return GitSvnRepository(path)
+
+        return None
+
+    def __init__(self, path):
+        self.path = path
+        self.name = os.path.split(path)[-1]
+
+
+class GitRepository(Repository):
+    """A git repository
+    """
+
+    scmtype = ColorString('git', 'green')
+
+    @memoize
+    def _branchinfo(self):
+        cmd = "git branch -vv | grep '^*'"
+        return runcmd_get_stdout(cmd, cwd=self.path).strip()
+
+    @memoize
+    def _ls_files(self):
+        cmd = 'git ls-files -t -m -o --exclude-standard -d'
+        return runcmd_get_stdout(cmd, cwd=self.path).strip().split('\n')
+
+    def upstream(self):
+        match = re.search(r'\[([^\[]*)\]', self._branchinfo())
+        if match:
+            return match.groups()[0]
+        else:
+            return None
+
+    def branch(self):
+        self.upstream()
+        match = re.search(r' (\S+)', self._branchinfo())
+        if match:
+            return match.groups()[0]
+        else:
+            return ''
+
+    def changed_files(self):
+        return len(filter(lambda line: line and line[0] in ['C', 'M'],
+                          self._ls_files()))
+
+    def removed_files(self):
+        return len(filter(lambda line: line and line[0] in ['R', 'K'],
+                          self._ls_files()))
+
+    def new_files(self):
+        return len(filter(lambda line: line and line[0] == '?',
+                          self._ls_files()))
+
+    def ahead(self):
+        match = re.search(r'\[.*ahead (\d+).*\]', self._branchinfo())
+        if match:
+            return match.groups()[0]
+        else:
+            return 0
+
+    def behind(self):
+        match = re.search(r'\[.*behind (\d+).*\]', self._branchinfo())
+        if match:
+            return match.groups()[0]
+        else:
+            return 0
+
+    def uncommitted(self):
+        cmd = 'git diff-index HEAD | grep -v 00000000000000000000000000'
+        idx = runcmd_get_stdout(cmd, cwd=self.path).strip()
+        if idx:
+            return len(idx.split('\n'))
+        else:
+            return 0
+
+    def is_dirty(self):
+        return self.ahead() or self.changed_files() or \
+            self.removed_files() or self.new_files() or self.behind() or \
+            self.uncommitted()
+
+
+class GitSvnRepository(GitRepository):
+    """A git-svn repository
+    """
+
+    scmtype = ColorString('gitsvn', 'yellow')
+
+    def ahead(self):
+        cmd = 'git branch -r --contains HEAD'
+        if not runcmd_get_stdout(cmd, cwd=self.path).strip():
+            return '^'
+        else:
+            return 0
+
+    def behind(self):
+        return 0
+
+
+class SvnRepository(Repository):
+    """A subversion repository
+    """
+
+    scmtype = ColorString('svn', 'red')
+
+    def _url(self):
+        cmd = 'svn info | grep URL | cut -d " " -f 2'
+        return runcmd_get_stdout(cmd, cwd=self.path).strip()
+
+    @memoize
+    def _status(self):
+        cmd = 'svn status'
+        return runcmd_get_stdout(cmd, cwd=self.path).strip().split('\n')
+
+    def branch(self):
+        return os.path.split(self._url())[-1]
+
+    def changed_files(self):
+        return len(filter(lambda line: line and line[0] in ['M', 'C'],
+                          self._status()))
+
+    def removed_files(self):
+        return len(filter(lambda line: line and line[0] in ['R', '!'],
+                          self._status()))
+
+    def new_files(self):
+        return len(filter(lambda line: line and line[0] == '?',
+                          self._status()))
+
+    def ahead(self):
+        return 0
+
+    def behind(self):
+        return 0
+
+    def uncommitted(self):
+        match = ['A', 'I', '*']
+        return len(filter(lambda line: line and line[0] in match,
+                          self._status()))
+
+    def is_dirty(self):
+        return len(filter(lambda line: line, self._status())) > 0
+
+    def upstream(self):
+        return ''
+
+
+class ASCIITable(object):
+    """Builds a ASCII table.
+    """
+
+    def __init__(self, *titles):
+        self.titles = titles
+        self.rows = []
+
+    def push(self, row):
+        self.rows.append(row)
+
+    def __call__(self):
+        widths = []
+        for row in [self.titles] + self.rows:
+            for col, val in enumerate(row):
+                if len(widths) <= col:
+                    widths.append(0)
+                if len(val) + 2 > widths[col]:
+                    widths[col] = len(val) + 2
+        char_corner = ColorString('+', 'red')
+        char_vertical = ColorString('|', 'yellow')
+        char_horicontal = ColorString('-', 'yellow')
+
+        def hline(sep=char_horicontal):
+            chrs = [char_corner]
+            for w in widths:
+                chrs.append(w * sep)
+                chrs.append(char_corner)
+            return ''.join(chrs)
+
+        def formatrow(row):
+            chrs = [char_vertical]
+            for col, val in enumerate(row):
+                newval = ' ' + val.ljust(widths[col] - 1)
+                chrs.append(newval)
+                chrs.append(char_vertical)
+            return ''.join(chrs)
+
+        print hline()
+        print formatrow(self.titles)
+        print hline()
+        for row in self.rows:
+            print formatrow(row)
+        print hline()
+
+
+if __name__ == '__main__':
+    MainCommand(sys.argv[1:])()
