@@ -1,0 +1,52 @@
+#!/usr/bin/env sh
+
+set -euo pipefail
+
+GREEN="\033[0;32m"
+RESET_COLOR='\033[0m'
+
+function runv() {
+    echo "${GREEN}>> $@${RESET_COLOR}"
+    eval $@
+    echo ""
+}
+
+if [[ -e $1 ]]; then
+    if [[ -L buildout.cfg ]]; then
+	# buildout.cfg is a symlink - save to remove.
+	runv rm buildout.cfg
+    fi
+    if [[ -e buildout.cfg ]]; then
+	# buildout.cfg is not a symlink - refuse to work.
+	echo "ERROR: buildout.cfg is not a symlink."
+	exit 1
+    fi
+    runv ln -s $1 buildout.cfg
+    shift
+fi
+
+if [[ ! -e buildout.cfg ]]; then
+    echo "ERROR: buildout.cfg missing"
+    exit 1
+fi
+
+
+if [[ ! -e .python-version ]]; then
+    # Enable plonpy pyenv-virtualenv version in order to let
+    # emacs to static code analysis
+    runv pyenv local plonepy
+fi
+
+if [[ ! -x bin/python ]]; then
+    # Isolate with virtualenv against eggs installed in plonepy.
+    runv virtualenv . --no-setuptools
+    echo ""
+fi
+
+if [[ ! -x bin/buildout ]]; then
+    runv ./bin/pip install zc.buildout
+fi
+
+if [[ -x bin/buildout ]]; then
+    runv ./bin/buildout $@
+fi
