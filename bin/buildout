@@ -11,7 +11,7 @@ function runv() {
     echo ""
 }
 
-if [[ -e $1 ]]; then
+if [[ $# -gt 0  && -e "$1" ]]; then
     if [[ -L buildout.cfg ]]; then
 	# buildout.cfg is a symlink - save to remove.
 	runv rm buildout.cfg
@@ -31,16 +31,16 @@ if [[ ! -e buildout.cfg ]]; then
 fi
 
 
+if [[ ! -x bin/python ]]; then
+    # Isolate with virtualenv against eggs installed in plonepy.
+    runv PYENV_VERSION=py2buildout virtualenv . --no-setuptools
+    echo ""
+fi
+
 if [[ ! -e .python-version ]]; then
     # Enable plonpy pyenv-virtualenv version in order to let
     # emacs to static code analysis
-    runv pyenv local plonepy
-fi
-
-if [[ ! -x bin/python ]]; then
-    # Isolate with virtualenv against eggs installed in plonepy.
-    runv virtualenv . --no-setuptools
-    echo ""
+    runv pyenv local py2plone
 fi
 
 if [[ ! -x bin/buildout ]]; then
