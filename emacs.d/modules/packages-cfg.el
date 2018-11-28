@@ -235,6 +235,14 @@
 (use-package persp-projectile
   :ensure t)
 
+(use-package yasnippet
+  :ensure t
+  :commands (yas-minor-mode)
+  :init (progn
+          (add-hook 'prog-mode-hook #'yas-minor-mode))
+  :config (progn
+            (yas-reload-all)))
+
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
 	 ("C-c f s" . jone-sort-lines-at-point)
