@@ -142,7 +142,8 @@
             ;; customize flycheck temp file prefix
             (setq-default flycheck-temp-prefix ".flycheck")
 
-            ))
+            )
+  :bind (("C-§" . flycheck-next-error)))
 
 (use-package flycheck-popup-tip
   :ensure t
