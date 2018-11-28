@@ -10,6 +10,7 @@
  '(helm-M-x-fuzzy-match t)
  '(helm-buffers-fuzzy-matching t)
  '(helm-mode-fuzzy-match t)
+ '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
     (pyenv-mode pyenv-mode-auto flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
