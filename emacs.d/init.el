@@ -28,7 +28,7 @@
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-(blink-cursor-mode -1)
+(blink-cursor-mode 1)
 (setq-default cursor-type '(bar . 2))
 (global-hl-line-mode t)
 (delete-selection-mode 1)
