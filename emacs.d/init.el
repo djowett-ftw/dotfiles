@@ -42,14 +42,20 @@
 
 (remove-trailing-whitespace-mode)
 
+(set-face-background 'mode-line "#d6fffb")
 (setq visible-bell nil)
 (setq ring-bell-function
       (lambda ()
-        (let ((orig-fg (face-foreground 'mode-line)))
+        (let ((orig-fg (face-foreground 'mode-line))
+              (orig-bg (face-background 'mode-line)))
           (set-face-foreground 'mode-line "#F2804F")
+          (set-face-background 'mode-line "#000000")
           (run-with-idle-timer 0.1 nil
-                               (lambda (fg) (set-face-foreground 'mode-line fg))
-                               orig-fg))))
+                               (lambda (fg bg)
+                                 (set-face-foreground 'mode-line fg)
+                                 (set-face-background 'mode-line bg))
+                               orig-fg
+                               orig-bg))))
 
 (server-start)
 
