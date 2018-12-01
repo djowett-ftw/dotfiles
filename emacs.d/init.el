@@ -30,7 +30,6 @@
   (tool-bar-mode -1))
 (blink-cursor-mode 1)
 (setq-default cursor-type '(bar . 2))
-(global-hl-line-mode t)
 (delete-selection-mode 1)
 (transient-mark-mode 1)
 (show-paren-mode 1)
@@ -41,6 +40,9 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 (remove-trailing-whitespace-mode)
+
+(global-hl-line-mode t)
+(set-face-background 'hl-line "#d6fffb")
 
 (set-face-background 'mode-line "#d6fffb")
 (setq visible-bell nil)
