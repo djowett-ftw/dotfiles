@@ -40,7 +40,6 @@
 (setq inhibit-startup-screen t)
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-(electric-pair-mode 1)
 (remove-trailing-whitespace-mode)
 
 (setq visible-bell nil)
