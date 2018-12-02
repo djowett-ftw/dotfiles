@@ -95,7 +95,8 @@
 
 
 (use-package minitest
-  :bind ("M-e" . minitest-verify)
+  :bind (:map ruby-mode-map
+              ("M-e" . minitest-verify))
   :config (progn
             (defun minitest-ruby-mode-hook ()
               (tester-init-test-run #'minitest-run-file "_test.rb$")
@@ -248,7 +249,8 @@
 	 ("C-c f s" . jone-sort-lines-at-point)
 	 ("C-c f f" . jone-run-server-in-pdb-mode)
 	 ("C-c f r" . jone-plone-reload)
-	 ("C-x p" . jone-discover-projects-and-switch)))
+	 ("C-x p" . jone-discover-projects-and-switch)
+         ("M-e" . jone-run-tests)))
 
 
 (provide 'packages-cfg)

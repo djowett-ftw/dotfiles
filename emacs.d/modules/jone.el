@@ -67,4 +67,32 @@ at the nearest location."
   (shell-command "plone-reload"))
 
 
+(defvar jone--prev-test-command nil)
+
+(defun jone-run-tests ()
+  "Run tests of this file or the last ran test."
+  (interactive)
+  (let ((new-command (jone--test-command-for-buffer))
+        (test-buffer-name "*test*"))
+    (if new-command
+        (setq jone--prev-test-command new-command))
+    (if (get-buffer test-buffer-name) (kill-buffer test-buffer-name))
+    (pdb jone--prev-test-command)
+    (rename-buffer test-buffer-name)))
+
+
+(defun jone--test-command-for-buffer ()
+  (if buffer-file-name
+      (cond
+       ((string-match "test_.*\.py$" buffer-file-name)
+        (jone--plone-test-command)))))
+
+
+(defun jone--plone-test-command ()
+  (let ((program (jone-locate-first-dominating-file '("bin/test"))))
+    (if program
+        (let ((dottedname (replace-regexp-in-string "/" "." (file-name-sans-extension (file-relative-name buffer-file-name (concat program "../../.."))))))
+          (concat program " -t " dottedname)))))
+
+
 (provide 'jone)
