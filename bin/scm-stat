@@ -411,7 +411,7 @@ class SvnRepository(Repository):
     scmtype = ColorString('svn', 'red')
 
     def _url(self):
-        cmd = 'svn info | grep URL | cut -d " " -f 2'
+        cmd = 'svn info | grep URL | cut -d " " -f 2 | grep -v URL'
         return runcmd_get_stdout(cmd, cwd=self.path).strip()
 
     @memoize
