@@ -6,14 +6,14 @@ Host *
   AddKeysToAgent yes
 
 
-Host			*.4teamwork.ch !sigma.4teamwork.ch
+Host			*.4teamwork.ch !beta.4teamwork.ch
     User                jba
-    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand        ssh zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 
 Host			plone1.rizwetzikon.ch
     User                zope
-    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand        ssh zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 
 
@@ -21,7 +21,7 @@ Host			plone1.rizwetzikon.ch
 # ssh wsstadt762.stadt.winroot.net
 Host                    hekate.win.ch
     User                23bajo
-    ProxyCommand        ssh zope@sigma.4teamwork.ch nc %h %p
+    ProxyCommand        ssh zope@beta.4teamwork.ch nc %h %p
 
 Host                    wsstadt762.stadt.winroot.net
     User                zope
@@ -37,12 +37,12 @@ Host                    wsstadt730.stadt.winroot.net
 Host intranetai
     User zope
     Hostname 194.147.134.48
-    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 Host ai-ux-teamraum.ai.ch
     User zope
     Hostname 194.147.134.49
-    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 Host gever.ai.ch
     ProxyCommand ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
@@ -52,15 +52,15 @@ Host gever.ai.ch
 # ZUG
 Host zgchdev.4teamwork.ch
     User zope
-    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 Host zgchtest.4teamwork.ch
     User zope
-    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 Host zgchprod.4teamwork.ch
     User zope
-    ProxyCommand ssh -A zope@sigma.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 
 # SG
