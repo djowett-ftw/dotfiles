@@ -12,6 +12,9 @@
   (setenv "PATH" (concat (getenv "PATH") (mapconcat 'identity paths-to-add ":")))
   (setq exec-path (append exec-path paths-to-add)))
 
+(setenv "LANG" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
+
 (require 'defuns-cfg)
 (require 'enlarge-cfg)
 (require 'keybindings-cfg)
