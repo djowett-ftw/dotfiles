@@ -19,6 +19,7 @@ brew "macvim"
 brew "openconnect"
 brew "openssl"
 brew "pinentry-mac"
+brew "pipenv"
 brew "postgres", args: ["with-python"]
 brew "pyenv"
 brew "pyenv-virtualenv"
