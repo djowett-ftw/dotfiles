@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+ssh zope@ps3papp804.ps3.sktsg.ch -D 5050

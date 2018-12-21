@@ -64,6 +64,7 @@ Host zgchprod.4teamwork.ch
 
 
 # SG
-Host *.ps3.sktsg.ch
-    ProxyCommand ssh 4teamwork@10.0.0.10 nc %h %p
+Host *.ps3.sktsg.ch *.pu1.uktsg.ch
+    User zope
+    ProxyCommand ssh 4teamwork@10.0.0.10 nc %h %p 2> /dev/null
     ForwardAgent yes
