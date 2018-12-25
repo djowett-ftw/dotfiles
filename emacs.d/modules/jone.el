@@ -56,9 +56,7 @@ at the nearest location."
   (interactive)
   (let* ((program (jone-locate-first-dominating-file '("bin/instance")))
 	 (command (concat program " fg")))
-    (if (get-buffer command) (kill-buffer command))
-    (pdb command)
-    (rename-buffer command)))
+    (jone--pdb command command)))
 
 
 (defun jone-plone-reload ()
@@ -76,9 +74,7 @@ at the nearest location."
         (test-buffer-name "*test*"))
     (if new-command
         (setq jone--prev-test-command new-command))
-    (if (get-buffer test-buffer-name) (kill-buffer test-buffer-name))
-    (pdb jone--prev-test-command)
-    (rename-buffer test-buffer-name)))
+    (jone--pdb jone--prev-test-command test-buffer-name)))
 
 
 (defun jone--test-command-for-buffer ()
@@ -94,5 +90,22 @@ at the nearest location."
         (let ((dottedname (replace-regexp-in-string "/" "." (file-name-sans-extension (file-relative-name buffer-file-name (concat program "../../.."))))))
           (concat program " -t " dottedname)))))
 
+
+(defun jone--pdb (pdb-command pdb-buffer-name)
+  (if (not (eq 2 (length (window-list))))
+      (split-window-right))
+
+  (if (get-buffer pdb-buffer-name)
+      (progn
+        (let ((window-with-pdb-buffer (get-buffer-window pdb-buffer-name)))
+          (if window-with-pdb-buffer
+              (select-window window-with-pdb-buffer)
+            (other-window 1)))
+        (kill-buffer pdb-buffer-name))
+    (other-window 1))
+
+  (pdb pdb-command)
+  (if (not (get-buffer pdb-buffer-name))
+      (rename-buffer pdb-buffer-name)))
 
 (provide 'jone)
