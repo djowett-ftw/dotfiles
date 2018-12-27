@@ -6,9 +6,9 @@ Host *
   AddKeysToAgent yes
 
 
-Host			*.4teamwork.ch !beta.4teamwork.ch
+Host			*.4teamwork.ch !d9fw.4teamwork.ch
     User                jba
-    ProxyCommand        ssh zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyJump           jba@d9fw.4teamwork.ch
 
 
 Host			plone1.rizwetzikon.ch
