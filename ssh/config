@@ -1,16 +1,32 @@
-Host *
-  ForwardAgent yes
-  ServerAliveInterval 60
-  IdentityFile ~/.ssh/id_rsa
-  UseKeychain yes
-  AddKeysToAgent yes
+Host                    *
+  ForwardAgent          yes
+  ServerAliveInterval   60
+  IdentityFile          ~/.ssh/id_rsa
+  UseKeychain           yes
+  AddKeysToAgent        yes
 
+Host                    zgch*.4teamwork.ch
+    User                zope
 
 Host			*.4teamwork.ch !d9fw.4teamwork.ch
     User                jba
-    ProxyJump           jba@d9fw.4teamwork.ch
+    ProxyJump           office
+
+Host                    office
+    Hostname            d9fw.4teamwork.ch
+    User                jba
+    LocalForward        15900 10.0.0.10:5900
+    DynamicForward      12345
+
+Host                    majestix sg-vdi
+    Hostname            10.0.0.10
+    User                4teamwork
+    LocalForward        3389 V51107.pu1.uktsg.ch:3389
+    ProxyJump           office
 
 
+
+# Wetzikon
 Host			plone1.rizwetzikon.ch
     User                zope
     ProxyCommand        ssh zope@beta.4teamwork.ch nc %h %p 2> /dev/null
@@ -34,37 +50,35 @@ Host                    wsstadt730.stadt.winroot.net
 
 
 # APPENZELL INNERRHODEN
-Host intranetai
-    User zope
-    Hostname 194.147.134.48
-    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+Host                    intranetai
+    User                zope
+    Hostname            194.147.134.48
+    ProxyCommand        ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
-Host ai-ux-teamraum.ai.ch
-    User zope
-    Hostname 194.147.134.49
-    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+Host                    ai-ux-teamraum.ai.ch
+    User                zope
+    Hostname            194.147.134.49
+    ProxyCommand        ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
-Host gever.ai.ch
-    ProxyCommand ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
-    ForwardAgent yes
+Host                    gever.ai.ch
+    ProxyCommand        ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
+    ForwardAgent        yes
+
 
 
 # ZUG
-Host zgchdev.4teamwork.ch
-    User zope
-    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+Host                    zgch*.4teamwork.ch
+    ProxyJump           office
 
-Host zgchtest.4teamwork.ch
-    User zope
-    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
-
-Host zgchprod.4teamwork.ch
-    User zope
-    ProxyCommand ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
 
 
 # SG
-Host *.ps3.sktsg.ch *.pu1.uktsg.ch
-    User zope
-    ProxyCommand ssh 4teamwork@10.0.0.10 nc %h %p 2> /dev/null
-    ForwardAgent yes
+Host                    sg
+    Hostname            ps3papp804.ps3.sktsg.ch
+    User                zope
+    DynamicForward      5050
+    ProxyJump           majestix
+
+Host                    *.ps3.sktsg.ch *.pu1.uktsg.ch
+    User                zope
+    ProxyJump           majestix
