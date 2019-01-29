@@ -24,6 +24,9 @@ Host                    majestix sg-vdi
     LocalForward        3389 V51107.pu1.uktsg.ch:3389
     ProxyJump           office
 
+Host                    jumphost
+    Hostname            beta.4teamwork.ch
+    User                zope
 
 
 # Wetzikon
@@ -53,12 +56,17 @@ Host                    wsstadt730.stadt.winroot.net
 Host                    intranetai
     User                zope
     Hostname            194.147.134.48
-    ProxyCommand        ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyJump           jumphost
+
+Host                    ai-ux-intranet.ai.ch
+    User                zope
+    Hostname            194.147.134.48
+    ProxyJump           jumphost
 
 Host                    ai-ux-teamraum.ai.ch
     User                zope
     Hostname            194.147.134.49
-    ProxyCommand        ssh -A zope@beta.4teamwork.ch nc %h %p 2> /dev/null
+    ProxyJump           jumphost
 
 Host                    gever.ai.ch
     ProxyCommand        ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
