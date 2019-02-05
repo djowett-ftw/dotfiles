@@ -11,6 +11,20 @@ function runv() {
     echo ""
 }
 
+if [[ $# -gt 1  && "$1" == "-v" && -e "$2" ]]; then
+    # Pin to newest setuptools / zc.buildout versions
+    echo "Writing custom buildout.cfg extending $2"
+    cat > buildout.cfg <<EOF
+[buildout]
+extends = $2
+
+[versions]
+setuptools =
+zc.buildout =
+EOF
+    shift 2;
+fi
+
 if [[ $# -gt 0  && -e "$1" ]]; then
     if [[ -L buildout.cfg ]]; then
 	# buildout.cfg is a symlink - save to remove.
