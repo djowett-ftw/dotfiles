@@ -92,3 +92,5 @@
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 (add-to-list 'auto-mode-alist '("\\.zcml$" . nxml-mode))
+
+(setq latex-run-command "pdflatex")
