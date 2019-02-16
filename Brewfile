@@ -4,6 +4,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
+brew "cmake"
 brew "docutils"
 brew "emacs", args: ["with-cocoa"]
 brew "ghostscript"
