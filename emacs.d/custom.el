@@ -13,7 +13,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (pyenv-mode pyenv-mode-auto flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
+    (auto-dim-other-buffers pyenv-mode pyenv-mode-auto flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
  '(projectile-project-search-path (quote ("~/projects")))
  '(require-final-newline (quote visit-save)))
 (custom-set-faces
@@ -21,4 +21,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(auto-dim-other-buffers-face ((t (:background "#DDD")))))

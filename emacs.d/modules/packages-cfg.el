@@ -244,6 +244,10 @@
   :config (progn
             (yas-reload-all)))
 
+(use-package auto-dim-other-buffers
+  :ensure t
+  :init (auto-dim-other-buffers-mode 1))
+
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
 	 ("C-c f s" . jone-sort-lines-at-point)
