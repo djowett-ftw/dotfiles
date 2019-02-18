@@ -15,7 +15,8 @@
    (quote
     (auto-dim-other-buffers pyenv-mode pyenv-mode-auto flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
  '(projectile-project-search-path (quote ("~/projects")))
- '(require-final-newline (quote visit-save)))
+ '(require-final-newline (quote visit-save))
+ '(tex-start-commands ""))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
