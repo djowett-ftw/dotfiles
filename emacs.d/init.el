@@ -94,3 +94,4 @@
 (add-to-list 'auto-mode-alist '("\\.zcml$" . nxml-mode))
 
 (setq latex-run-command "pdflatex")
+(put 'narrow-to-region 'disabled nil)
