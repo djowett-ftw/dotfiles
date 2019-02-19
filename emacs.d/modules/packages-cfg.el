@@ -248,6 +248,10 @@
   :ensure t
   :init (auto-dim-other-buffers-mode 1))
 
+(use-package ace-jump-mode
+  :ensure t
+  :bind (("C-c SPC" . ace-jump-mode)))
+
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
 	 ("C-c f s" . jone-sort-lines-at-point)
