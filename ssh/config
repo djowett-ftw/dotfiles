@@ -90,3 +90,10 @@ Host                    sg
 Host                    *.ps3.sktsg.ch *.pu1.uktsg.ch
     User                zope
     ProxyJump           majestix
+
+
+# BL
+Host                    bl
+    Hostname            fziwebblbe01q.bl.ch
+    User                zope
+    DynamicForward      5051
