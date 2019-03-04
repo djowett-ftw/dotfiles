@@ -78,6 +78,11 @@ Host                    gever.ai.ch
 Host                    zgch*.4teamwork.ch
     ProxyJump           office
 
+Host                    zg
+    User                zope
+    Hostname            0000islx30.zg.ch
+    DynamicForward      5052
+
 
 
 # SG
