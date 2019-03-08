@@ -87,7 +87,7 @@ Host                    zg
 
 # SG
 Host                    sg
-    Hostname            ps3papp804.ps3.sktsg.ch
+    Hostname            pus15803.pu1.uktsg.ch
     User                zope
     DynamicForward      5050
     ProxyJump           majestix
