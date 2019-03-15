@@ -121,6 +121,10 @@
             (global-rbenv-mode)
             (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)))
 
+
+(use-package exec-path-from-shell
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   :defer 5
