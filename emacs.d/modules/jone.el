@@ -108,4 +108,22 @@ at the nearest location."
   (if (not (get-buffer pdb-buffer-name))
       (rename-buffer pdb-buffer-name)))
 
+(require 's)
+(require 'f)
+(require 'pyenv-mode)
+
+(defun jone-pyenv-mode-auto-hook ()
+  (f-traverse-upwards
+   (lambda (path)
+     (let ((pyenv-version-path (f-expand ".python-version" path)))
+       (if (f-exists? pyenv-version-path)
+           (progn
+             (let* ((version (car (s-lines (s-trim (f-read-text pyenv-version-path 'utf-8)))))
+                    (major-version (substring version 0 1))
+                    (code-analysis-pyenv (concat major-version "ca")))
+               (pyenv-mode-set code-analysis-pyenv))
+             t))))))
+
+(add-hook 'find-file-hook 'jone-pyenv-mode-auto-hook)
+
 (provide 'jone)

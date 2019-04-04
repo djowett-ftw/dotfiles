@@ -158,9 +158,6 @@
   :ensure t
   :init (pyenv-mode))
 
-(use-package pyenv-mode-auto
-  :ensure t)
-
 (use-package drag-stuff
   :ensure t
   :bind (("C-M-i" . drag-stuff-up)
