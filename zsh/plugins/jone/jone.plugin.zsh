@@ -9,7 +9,9 @@ pwdcp() {
 
 g4c() {
     set -x
+    c
     git clone git@github.com:4teamwork/$@
+    cd $@
 }
 
 . $ZSH_CUSTOM/plugins/jone/lazy-nvm.zsh
