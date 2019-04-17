@@ -94,6 +94,9 @@ Host                    sg
     LocalForward        8880 10.72.69.47:80
     LocalForward        8881 10.72.69.47:81
 
+Host                    ps3papp808.ps3.sktsg.ch
+    ProxyJump           sg
+
 Host                    *.ps3.sktsg.ch *.pu1.uktsg.ch
     User                zope
     ProxyJump           majestix
