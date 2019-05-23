@@ -11,8 +11,10 @@
 .python-version
 .svn
 .swo
+.venv
 graph.pdf
+include/
+lib/
 output.html
 uuid.txt
 ~$*
-.venv
