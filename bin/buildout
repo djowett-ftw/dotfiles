@@ -44,11 +44,15 @@ if [[ ! -e buildout.cfg ]]; then
     exit 1
 fi
 
-
 if [[ ! -x bin/python ]]; then
     # Isolate with virtualenv against eggs installed in plonepy.
-    runv PYENV_VERSION=py2buildout virtualenv . --no-setuptools
-    echo ""
+    if [[ `grep py3 buildout.cfg` ]]; then
+        runv PYENV_VERSION=py3buildout python -m venv .
+        echo ""
+    else
+        runv PYENV_VERSION=py2buildout virtualenv . --no-setuptools
+        echo ""
+    fi
 fi
 
 if [[ ! -e .python-version ]]; then
