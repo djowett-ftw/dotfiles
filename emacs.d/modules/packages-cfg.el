@@ -261,6 +261,9 @@
                 (blacken-mode)))
             (add-hook 'python-mode-hook 'maybe-enable-blacken)))
 
+(use-package pytest
+  :ensure t)
+
 (use-package jone
   :bind (("C-c f c" . jone-make-changelog-entry)
          ("C-c f s" . jone-sort-lines-at-point)

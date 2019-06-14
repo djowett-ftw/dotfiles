@@ -73,9 +73,10 @@ at the nearest location."
   (let ((new-command (jone--test-command-for-buffer))
         (test-buffer-name "*test*"))
     (if new-command
-        (setq jone--prev-test-command new-command))
-    (jone--pdb jone--prev-test-command test-buffer-name)))
-
+        (progn
+          (setq jone--prev-test-command new-command)
+          (jone--pdb jone--prev-test-command test-buffer-name))
+      (jone--run-pytest))))
 
 (defun jone--test-command-for-buffer ()
   (if buffer-file-name
@@ -107,6 +108,11 @@ at the nearest location."
   (pdb pdb-command)
   (if (not (get-buffer pdb-buffer-name))
       (rename-buffer pdb-buffer-name)))
+
+(defun jone--run-pytest ()
+  (let ((pytest-global-name (jone-locate-first-dominating-file '("venv/bin/pytest" "bin/pytest"))))
+    (if pytest-global-name
+        (pytest-module))))
 
 (require 's)
 (require 'f)
