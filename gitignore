@@ -7,6 +7,7 @@
 *_flymake.*
 .#*
 .DS_Store
+.blacken
 .flycheck_*
 .python-version
 .svn
