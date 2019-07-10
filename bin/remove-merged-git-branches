@@ -75,7 +75,7 @@ done
 for path in $repos; do
     cd $path
     # local branches
-    branches=`git branch --merged master | grep -v 'master' | grep -v HEAD | sed -e 's/\* //' | sed -e 's/ *//' | grep -v '\.x$'`
+    branches=`git branch --merged master | grep -v 'master' | grep -v 'production' | grep -v HEAD | sed -e 's/\* //' | sed -e 's/ *//' | grep -v '\.x$'`
     if [[ "$branches" != "" ]]; then
         echo ""
         print_repo_path $path
@@ -94,7 +94,7 @@ for path in $repos; do
         echo ""
     fi
 
-    branches=`git branch -r --merged master | grep -v 'master' | grep -v HEAD | sed -e 's/\* //' | sed -e 's/ *//' | grep -v '\.x$' | grep -e '^origin\/'`
+    branches=`git branch -r --merged master | grep -v 'master' | grep -v 'production' | grep -v HEAD | sed -e 's/\* //' | sed -e 's/ *//' | grep -v '\.x$' | grep -e '^origin\/'`
     if [[ "$branches" != "" ]]; then
         echo ""
         print_repo_path $path
