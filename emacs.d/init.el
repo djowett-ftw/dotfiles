@@ -20,7 +20,7 @@
 (require 'keybindings-cfg)
 
 (if (member "Monaco" (font-family-list))
-    (set-face-attribute 'default nil :font "Monaco 12"))
+    (set-face-attribute 'default nil :font "Monaco 16"))
 (if window-system
     (progn
       (setq frame-title-format '(buffer-file-name "%f" ("%b")))
