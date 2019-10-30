@@ -18,7 +18,15 @@
     (pytest blacken ace-jump-mode auto-dim-other-buffers pyenv-mode flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
  '(projectile-project-search-path (quote ("~/projects")))
  '(require-final-newline (quote visit-save))
- '(tex-start-commands ""))
+ '(tex-start-commands "")
+ '(web-mode-attr-indent-offset 4)
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-enable-auto-indentation nil)
+ '(web-mode-indent-style 1)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-script-padding 2)
+ '(web-mode-style-padding 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
