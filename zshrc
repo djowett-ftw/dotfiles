@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -66,3 +65,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 
 #### MacOS
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
+
+
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
