@@ -9,6 +9,7 @@ brew "docutils"
 brew "emacs", args: ["with-cocoa"]
 brew "ghostscript"
 brew "git-lfs"
+brew "graphviz"
 brew "gnupg"
 brew "imagemagick"
 brew "libjpeg"
