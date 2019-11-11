@@ -125,6 +125,7 @@ at the nearest location."
        (if (f-exists? pyenv-version-path)
            (progn
              (let* ((version (car (s-lines (s-trim (f-read-text pyenv-version-path 'utf-8)))))
+                    (version (replace-regexp-in-string "[^[:digit:]]*" "" version))
                     (major-version (substring version 0 1))
                     (code-analysis-pyenv (concat major-version "ca")))
                (pyenv-mode-set code-analysis-pyenv))
