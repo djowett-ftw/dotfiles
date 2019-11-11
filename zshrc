@@ -11,6 +11,7 @@ export GEVER_CACHE_TEST_DB=true
 export PIPENV_VENV_IN_PROJECT=1
 export PYENV_ROOT=${HOME}/.pyenv
 export PYTHON27=/Users/jone/.pyenv/versions/2.7.15/bin/python
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 ZSH_THEME="robbyrussell"
 ZSH_CUSTOM=$HOME/.zsh
@@ -67,4 +68,4 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
 
 
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$PATH
