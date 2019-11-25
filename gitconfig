@@ -62,3 +62,4 @@
     ssh = !open-ssh-by-git-remote
     fixup = commit --amend -C HEAD
     push-deploy = push --no-verify
+    sed = !sh -c 'git grep -l "$0" | xargs sed -i \"\" -e "s/$0/$1/g"'
