@@ -39,6 +39,7 @@ alias grs='git reset --hard'
 alias gs='git status'
 alias go='git browse'
 alias glog='git log --graph'
+alias gpp='git push-to-pr'
 
 if [ -x "$(command -v rbenv)" ]; then eval "$(rbenv init -)"; fi
 if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
