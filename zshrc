@@ -43,7 +43,9 @@ alias gpp='git push-to-pr'
 
 if [ -x "$(command -v rbenv)" ]; then eval "$(rbenv init -)"; fi
 if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
-if [ -x "$(command -v pyenv-virtualenv-init)" ]; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Virtualenv-init is very slow and only adds the activate-on-cd-feature.
+# if [ -x "$(command -v pyenv-virtualenv-init)" ]; then eval "$(pyenv virtualenv-init -)"; fi
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
