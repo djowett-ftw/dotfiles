@@ -269,6 +269,7 @@
          ("C-c f s" . jone-sort-lines-at-point)
          ("C-c f f" . jone-run-server-in-pdb-mode)
          ("C-c f r" . jone-plone-reload)
+         ("C-c f p" . jone-git-push-to-pr)
          ("C-x p" . jone-discover-projects-and-switch)
          ("M-e" . jone-run-tests)))
 

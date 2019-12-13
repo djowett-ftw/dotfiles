@@ -65,6 +65,12 @@ at the nearest location."
   (shell-command "plone-reload"))
 
 
+(defun jone-git-push-to-pr ()
+  "git push-to-pr"
+  (interactive)
+  (shell-command "git push-to-pr"))
+
+
 (defvar jone--prev-test-command nil)
 
 (defun jone-run-tests ()
