@@ -53,25 +53,27 @@ export NVM_DIR="$HOME/.nvm"
 # tramp support on remote server
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-#### HOMEBREW
-# zlib
-export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig $PKG_CONFIG_PATH"
+if [[ `uname` == "Darwin" ]]; then
+    #### HOMEBREW
+    # zlib
+    export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig $PKG_CONFIG_PATH"
 
-# sqlite
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig $PKG_CONFIG_PATH"
+    # sqlite
+    export PATH="/usr/local/opt/sqlite/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
+    export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig $PKG_CONFIG_PATH"
 
-# openssl
-export LDFLAGS="-L/usr/local/opt/openssl/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
+    # openssl
+    export LDFLAGS="-L/usr/local/opt/openssl/lib $LDFLAGS"
+    export CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 
-#### MacOS
-export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
+    #### MacOS
+    export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
+fi
 
 
 export PATH=$HOME/bin:$HOME/.bin:$PATH
