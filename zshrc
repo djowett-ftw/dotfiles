@@ -47,8 +47,10 @@ if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
 # Virtualenv-init is very slow and only adds the activate-on-cd-feature.
 # if [ -x "$(command -v pyenv-virtualenv-init)" ]; then eval "$(pyenv virtualenv-init -)"; fi
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh" --no-use
+if [ -f /usr/local/opt/nvm/nvm.sh ]; then
+    export NVM_DIR="$HOME/.nvm"
+    . "/usr/local/opt/nvm/nvm.sh" --no-use
+fi
 
 # tramp support on remote server
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
