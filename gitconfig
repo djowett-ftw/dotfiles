@@ -10,6 +10,9 @@
     whitespace = tabwidth=4,tab-in-indent,cr-at-eol,trailing-space
     pager = less -F -X
 
+[color]
+    ui = true
+
 [commit]
     gpgsign = true
 
