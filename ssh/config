@@ -5,6 +5,14 @@ Host                    *
   UseKeychain           yes
   AddKeysToAgent        yes
 
+
+Host                    j4
+    Hostname            10.0.0.190
+    User                jone
+    ProxyJump           office
+    LocalForward        10101 localhost:10101
+    LocalForward        10201 localhost:10201
+
 Host                    zgch*.4teamwork.ch
     User                zope
 
