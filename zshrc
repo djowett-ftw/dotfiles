@@ -50,6 +50,9 @@ if [ -x "$(command -v pyenv)" ]; then eval "$(pyenv init -)"; fi
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh" --no-use
 
+# tramp support on remote server
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 #### HOMEBREW
 # zlib
 export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
