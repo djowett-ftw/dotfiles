@@ -31,7 +31,12 @@ alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.lo
 alias e='$EDITOR -n'
 alias d='mvimdiff'
 alias fakemail='sudo ~/.bin/fakemail.py --host=localhost --port=25 --path=$HOME/temp/mails --background --open'
-PROMPT="$fg[cyan]%m ${PROMPT}"
+
+if [[ `uname` == "Darwin" ]]; then
+    PROMPT="%{$fg[green]%}%m ${PROMPT}"
+else
+    PROMPT="%{$fg_bold[red]%}%m ${PROMPT}"
+fi
 
 # git
 alias ga.='ga .'
