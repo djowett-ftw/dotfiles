@@ -27,6 +27,12 @@ Host                    office
     LocalForward        15900 10.0.0.10:5900
     DynamicForward      12345
 
+Host                    foreman
+    Hostname            10.0.0.90
+    User                jba
+    ProxyJump           office
+    DynamicForward      5054
+
 Host                    majestix sg-vdi
     Hostname            10.0.0.10
     User                4teamwork
