@@ -7,8 +7,14 @@ Host                    *
   AddKeysToAgent        yes
 
 
+Host                    vpn
+    Hostname            10.0.0.161
+    User                vpn
+    ProxyJump           office
+
+
 Host                    j4
-    Hostname            10.0.0.190
+    Hostname            10.0.0.161
     User                jone
     ProxyJump           office
     LocalForward        10101 localhost:10101
@@ -96,9 +102,12 @@ Host                    zgch*.4teamwork.ch
 
 Host                    zg
     User                zope
-    Hostname            0000islx30.zg.ch
+    Hostname            0000oglx10.zg.ch
     DynamicForward      5052
+    ProxyJump           vpn
 
+Host                    *.zg.ch
+    ProxyJump           vpn
 
 
 # SG
