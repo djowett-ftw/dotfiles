@@ -8,6 +8,7 @@ brew "cmake"
 brew "docutils"
 brew "emacs", args: ["with-cocoa"]
 brew "ghostscript"
+brew "git"
 brew "git-lfs"
 brew "graphviz"
 brew "gnupg"
