@@ -6,6 +6,8 @@
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -567,14 +569,16 @@ Find.Find...</string>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1080 966 400 129 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>610 326 700 622 0 0 1920 1057 </string>
+	<string>930 596 700 622 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>199 1314 796 486 -270 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>129 72 2302 1272 0 0 2560 1417 </string>
+	<string>129 74 2302 1268 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 842 745 575 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
@@ -1216,9 +1220,18 @@ Find.Find...</string>
 	<array>
 		<string>3.3.2</string>
 		<string>3.2.9</string>
+		<string>3.3.8</string>
+		<string>3.3.7</string>
 		<string>3.3.3</string>
 		<string>3.3.6</string>
 	</array>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {2560, 1440}}</string>
+		<key>topLeft</key>
+		<string>{977, 1192}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
@@ -1233,7 +1246,7 @@ Find.Find...</string>
 	<key>NoSyncInstallationId</key>
 	<string>F4F8BB02-50B8-4AB2-BAA1-4A823F70B6B0</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>31</integer>
+	<integer>74</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1966,10 +1979,6 @@ Find.Find...</string>
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory2</key>
-	<array>
-		<string>topics</string>
-	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>563492838.33665001</real>
 	<key>OpenBookmark</key>
@@ -2024,7 +2033,7 @@ Find.Find...</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-14T07:49:21Z</date>
+	<date>2020-02-12T07:17:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -2062,6 +2071,6 @@ Find.Find...</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.6</string>
+	<string>3.3.8</string>
 </dict>
 </plist>
