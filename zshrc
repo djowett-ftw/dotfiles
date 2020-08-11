@@ -11,7 +11,7 @@ export GEVER_CACHE_TEST_DB=true
 export PIPENV_VENV_IN_PROJECT=1
 export PYENV_ROOT=${HOME}/.pyenv
 export PYTHON27=/Users/jone/.pyenv/versions/2.7.15/bin/python
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 ZSH_THEME="robbyrussell"
 ZSH_CUSTOM=$HOME/.zsh
