@@ -5,8 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(exec-path-from-shell-check-startup-files nil)
  '(flycheck-checkers
-   (quote
-    (ada-gnat asciidoctor asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint css-stylelint cwl d-dmd dockerfile-hadolint emacs-lisp erlang-rebar3 erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck go-unconvert go-megacheck groovy haml handlebars haskell-stack-ghc haskell-ghc haskell-hlint html-tidy javascript-eslint javascript-jshint javascript-standard json-jsonlint json-python-json jsonnet less less-stylelint llvm-llc lua-luacheck lua markdown-markdownlint-cli markdown-mdl nix perl perl-perlcritic php php-phpmd php-phpcs processing proselint protobuf-protoc pug puppet-parser puppet-lint python-flake8 python-pylint python-pycompile python-mypy r-lintr racket rpm-rpmlint rst-sphinx rst ruby-rubocop ruby-reek ruby-rubylint ruby ruby-jruby rust-cargo rust rust-clippy scala scala-scalastyle scheme-chicken scss-lint scss-stylelint sass/scss-sass-lint sass scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim slim-lint sql-sqlint systemd-analyze tcl-nagelfar typescript-tslint verilog-verilator vhdl-ghdl xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
+   '(ada-gnat asciidoctor asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint css-stylelint cwl d-dmd dockerfile-hadolint emacs-lisp erlang-rebar3 erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck go-unconvert go-megacheck groovy haml handlebars haskell-stack-ghc haskell-ghc haskell-hlint html-tidy javascript-eslint javascript-jshint javascript-standard json-jsonlint json-python-json jsonnet less less-stylelint llvm-llc lua-luacheck lua markdown-markdownlint-cli markdown-mdl nix perl perl-perlcritic php php-phpmd php-phpcs processing proselint protobuf-protoc pug puppet-parser puppet-lint python-flake8 python-pylint python-pycompile python-mypy r-lintr racket rpm-rpmlint rst-sphinx rst ruby-rubocop ruby-reek ruby-rubylint ruby ruby-jruby rust-cargo rust rust-clippy scala scala-scalastyle scheme-chicken scss-lint scss-stylelint sass/scss-sass-lint sass scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim slim-lint sql-sqlint systemd-analyze tcl-nagelfar typescript-tslint verilog-verilator vhdl-ghdl xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby))
  '(flycheck-rst-executable "/Users/jone/bin/rst2pseudoxml.py")
  '(flycheck-rst-sphinx-executable "/Users/jone/bin/sphinx-build")
  '(helm-M-x-fuzzy-match t)
@@ -14,10 +13,10 @@
  '(helm-mode-fuzzy-match t)
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   (quote
-    (pytest blacken ace-jump-mode auto-dim-other-buffers pyenv-mode flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package)))
- '(projectile-project-search-path (quote ("~/projects")))
- '(require-final-newline (quote visit-save))
+   '(pytest blacken ace-jump-mode auto-dim-other-buffers pyenv-mode flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package))
+ '(projectile-project-search-path '("~/projects"))
+ '(require-final-newline 'visit-save)
+ '(split-width-threshold 100)
  '(tex-start-commands "")
  '(web-mode-attr-indent-offset 4)
  '(web-mode-code-indent-offset 2)
