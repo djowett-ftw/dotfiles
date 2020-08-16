@@ -6,7 +6,6 @@ tap "homebrew/core"
 
 brew "cmake"
 brew "docutils"
-brew "emacs", args: ["with-cocoa"]
 brew "ghostscript"
 brew "git"
 brew "git-lfs"
@@ -39,7 +38,6 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 
-cask "emacs"
 cask "homebrew/cask-versions/java8"
 cask "mactex"
 cask "spotify"
