@@ -20,3 +20,4 @@ lib/
 output.html
 uuid.txt
 ~$*
+/emacs.d/transient/
