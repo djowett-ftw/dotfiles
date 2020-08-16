@@ -1,9 +1,3 @@
-(use-package ido
-  :config
-  (setq ido-enable-flex-matching t)
-  (ido-everywhere t)
-  (ido-mode 1))
-
 (use-package ag
   :ensure t
   :commands (ag ag-regexp ag-project))
@@ -29,7 +23,8 @@
               ("M-H" . helm-end-of-buffer))
   :config (progn
             (setq helm-buffers-fuzzy-matching t)
-            (helm-mode 1)))
+            ;; (helm-mode 1)
+            ))
 
 (use-package helm-descbinds
   :ensure t
@@ -67,6 +62,12 @@
          ("M-p" . helm-projectile-find-file)
          ("C-x r" . helm-projectile-grep))
   :config (helm-projectile-on))
+
+(use-package ido
+  :config
+  (setq ido-enable-flex-matching t)
+  (ido-everywhere t)
+  (ido-mode t))
 
 (use-package ruby-mode
   :ensure t
