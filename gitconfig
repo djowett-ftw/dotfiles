@@ -68,3 +68,5 @@
     sed = !sh -c 'git grep -l "$0" | xargs sed -i \"\" -e "s/$0/$1/g"'
     push-to-pr = !git push origin -u `git rev-parse --abbrev-ref HEAD` && open `git weburl`/pull/new/`git rev-parse --abbrev-ref HEAD`
     test = !test-changed "$@"
+[pull]
+	rebase = true
