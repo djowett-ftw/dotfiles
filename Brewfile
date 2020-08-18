@@ -24,7 +24,7 @@ brew "openconnect"
 brew "openssl"
 brew "pinentry-mac"
 brew "pipenv"
-brew "postgres", args: ["with-python"]
+brew "postgresql@10"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "rbenv"

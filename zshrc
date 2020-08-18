@@ -79,6 +79,12 @@ if [[ `uname` == "Darwin" ]]; then
     export CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
     export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 
+    # postgresql@11
+    export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/postgresql@10/lib"
+    export CPPFLAGS="-I/usr/local/opt/postgresql@10/include"
+    export PKG_CONFIG_PATH="/usr/local/opt/postgresql@10/lib/pkgconfig"
+
     #### MacOS
     export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
 fi
