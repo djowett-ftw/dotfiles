@@ -13,6 +13,12 @@ Host                    vpn
     ProxyJump           office
 
 
+Host                    vm
+    Hostname            10.0.0.161
+    User                jone
+    ProxyJump           office
+
+
 Host                    j4
     Hostname            10.0.0.161
     User                jone
