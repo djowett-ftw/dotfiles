@@ -8,8 +8,24 @@ RESET_COLOR='\033[0m'
 function runv() {
     echo "${GREEN}>> $@${RESET_COLOR}"
     eval $@
-    echo ""
 }
+
+function findPyenvVersion {
+    versions=$(pyenv versions | grep $1)
+    if [[ "$versions" == "" ]]; then
+        >&2 echo "ERROR: pyenv python version $1 is not installed."
+        exit 1
+    else
+        echo $versions | tr -d '[:space:]'
+    fi
+}
+
+if [[ $# -gt 0 && "$1" == "-f" ]]; then
+    git clean -Xf bin
+    git clean -Xf include
+    git clean -Xf lib
+    shift 1;
+fi
 
 if [[ $# -gt 1  && "$1" == "-v" && -e "$2" ]]; then
     # Pin to newest setuptools / zc.buildout versions
@@ -47,15 +63,21 @@ fi
 if [[ ! -x bin/python ]]; then
     # Isolate with virtualenv against eggs installed in plonepy.
     if [[ `grep py3 buildout.cfg` ]]; then
-        runv PYENV_VERSION=py3buildout python -m venv .
+        version=$(findPyenvVersion 2) || exit 1
+        runv PYENV_VERSION=$version python -m venv .
         echo ""
     else
-        runv PYENV_VERSION=py2buildout virtualenv . --no-setuptools
-        echo ""
+        version=$(findPyenvVersion 2) || exit 1
+        cmd="PYENV_VERSION=$version pyenv exec virtualenv . --no-setuptools"
+        runv $cmd
+        if [[ $? -ne 0 ]]; then
+            runv PYENV_VERSION=$version pyenv exec pip install virtualenv
+            runv $cmd
+        fi
     fi
 fi
 
-if [[ ! -e .python-version ]]; then
+if [[ ! -e .python-version && $(findPyenvVersion py2plone) ]]; then
     # Enable plonpy pyenv-virtualenv version in order to let
     # emacs to static code analysis
     runv pyenv local py2plone
