@@ -5,7 +5,7 @@ set -euo pipefail
 GREEN="\033[0;32m"
 RESET_COLOR='\033[0m'
 
-function runv() {
+function runv {
     echo "${GREEN}>> $@${RESET_COLOR}"
     eval $@
 }
@@ -69,7 +69,7 @@ if [[ ! -x bin/python ]]; then
     else
         version=$(findPyenvVersion 2) || exit 1
         cmd="PYENV_VERSION=$version pyenv exec virtualenv . --no-setuptools"
-        runv $cmd
+        runv $cmd ||
         if [[ $? -ne 0 ]]; then
             runv PYENV_VERSION=$version pyenv exec pip install virtualenv
             runv $cmd
