@@ -81,9 +81,9 @@ if [[ `uname` == "Darwin" ]]; then
 
     # postgresql@11
     export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-    export LDFLAGS="-L/usr/local/opt/postgresql@10/lib"
-    export CPPFLAGS="-I/usr/local/opt/postgresql@10/include"
-    export PKG_CONFIG_PATH="/usr/local/opt/postgresql@10/lib/pkgconfig"
+    export LDFLAGS="-L/usr/local/opt/postgresql@10/lib $LDFLAGS"
+    export CPPFLAGS="-I/usr/local/opt/postgresql@10/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="/usr/local/opt/postgresql@10/lib/pkgconfig $PKG_CONFIG_PATH"
 
     #### MacOS
     export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include/sasl $CFLAGS"
