@@ -63,6 +63,9 @@ fi
 
 if [[ `uname` == "Darwin" ]]; then
     #### HOMEBREW
+    # include SDK headers
+    export CPATH=`xcrun --show-sdk-path`/usr/include
+
     # zlib
     export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
     export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
