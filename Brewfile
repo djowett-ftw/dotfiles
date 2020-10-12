@@ -44,6 +44,7 @@ cask "mactex"
 cask "spotify"
 cask "tripmode"
 cask "wkhtmltopdf"
+cask "keepingyouawake"
 
 
 # pinentry setup:
