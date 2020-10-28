@@ -51,7 +51,7 @@ Host                    office
 
 Host                    foreman
     Hostname            10.0.0.90
-    User                jba
+    User                jone
     ProxyJump           office
     DynamicForward      5054
 
@@ -155,3 +155,15 @@ Host                    bl
 
 Host                    *.bl.ch
     ProxyJump           vpn
+
+
+# Koeniz
+Host                    koeniz-iz-jumphost
+    Hostname            public.iz-net.ch
+    User                zope
+
+Host                    koeniz
+    Hostname            test-gever.koeniz.ch
+    ProxyJump           koeniz-iz-jumphost
+    User                zope
+    DynamicForward      5055
