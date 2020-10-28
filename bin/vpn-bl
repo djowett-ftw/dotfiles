@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 username=X101065
-sudo openconnect -u $username --script ~/.bin/_vpn-bl_vpnc-script-split https://vpn.bl.ch/
+sudo openconnect -u $username --script ~/.bin/_vpn-bl_vpnc-script-split https://vpn1.bl.ch/
