@@ -19,6 +19,12 @@ Host                    vm
     ProxyJump           office
 
 
+Host                    dlsbox
+    Hostname            10.0.0.248
+    User                ftw
+    ProxyJump           office
+
+
 Host                    j4
     Hostname            10.0.0.161
     User                jone
@@ -47,6 +53,10 @@ Host                    office
     User                jba
     LocalForward        15900 10.0.0.10:5900
     LocalForward        3389 10.0.0.225:3389
+    LocalForward        8084 10.0.0.225:8084
+    LocalForward        3390 10.0.0.206:3389
+    LocalForward        8001 10.0.0.90:8001
+    LocalForward        8010 10.0.0.90:8010
     DynamicForward      12345
 
 Host                    foreman
@@ -61,9 +71,9 @@ Host                    majestix sg-vdi
     LocalForward        3389 V51107.pu1.uktsg.ch:3389
     ProxyJump           office
 
-Host                    jumphost
-    Hostname            beta.4teamwork.ch
-    User                zope
+Host                    jump
+    User                jba
+    Hostname            jump.4teamwork.ch
 
 
 # Wetzikon
@@ -94,17 +104,17 @@ Host                    ai intranetai
     User                zope
     Hostname            194.147.134.48
     DynamicForward      5053
-    ProxyJump           jumphost
+    ProxyJump           jump
 
 Host                    ai-ux-intranet.ai.ch
     User                zope
     Hostname            194.147.134.48
-    ProxyJump           jumphost
+    ProxyJump           jump
 
 Host                    ai-ux-teamraum.ai.ch
     User                zope
     Hostname            194.147.134.49
-    ProxyJump           jumphost
+    ProxyJump           jump
 
 Host                    gever.ai.ch
     ProxyCommand        ssh -A zope@geverdev.ai.ch nc %h %p 2>/dev/null
