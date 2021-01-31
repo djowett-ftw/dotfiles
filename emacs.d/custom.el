@@ -12,6 +12,7 @@
  '(helm-buffers-fuzzy-matching t)
  '(helm-mode-fuzzy-match t)
  '(indent-tabs-mode nil)
+ '(js-indent-level 2)
  '(package-selected-packages
    '(pytest blacken ace-jump-mode auto-dim-other-buffers pyenv-mode flycheck-popup-tip perspective exec-path-from-shell persp-projectile robe js2-mode coffee-mode markdown-mode web-mode yaml-mode slim-mode magit drag-stuff flycheck rbenv rspec-mode rubocop helm-projectile projectile helm-ag helm-swoop helm-descbinds helm twilight-bright-theme ag use-package))
  '(projectile-project-search-path '("~/projects"))
