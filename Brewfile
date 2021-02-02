@@ -10,8 +10,10 @@ brew "ghostscript"
 brew "git"
 brew "git-lfs"
 brew "graphviz"
+brew "gpg"
 brew "gnupg"
 brew "imagemagick"
+brew "java"
 brew "libjpeg"
 brew "librsvg"
 brew "libtiff"
@@ -39,13 +41,13 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 
-cask "homebrew/cask-versions/java8"
 cask "mactex"
-cask "spotify"
-cask "tripmode"
 cask "wkhtmltopdf"
 cask "keepingyouawake"
 
 
 # pinentry setup:
 # echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+# echo "use-agent" >> ~/.gnupg/gpg.conf
+# chmod 700 ~/.gnupg
+# gpg --import <<<path-to-key>>>
