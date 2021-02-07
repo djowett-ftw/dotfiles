@@ -5,7 +5,6 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR=/usr/local/bin/emacsclient
 export ALTERNATE_EDITOR=vim
-export PYTHONSTARTUP=~/.pythonstartup
 export FIGNORE=".egg-info:.pyc:.pyo:.mo"
 export GEVER_CACHE_TEST_DB=true
 export PIPENV_VENV_IN_PROJECT=1
