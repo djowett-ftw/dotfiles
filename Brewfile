@@ -38,7 +38,6 @@ brew "zlib"
 brew "zsh"
 
 cask "mactex"
-cask "wkhtmltopdf"
 cask "keepingyouawake"
 cask "macvim"
 
